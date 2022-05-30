@@ -16,20 +16,48 @@ class _HomePageDrawerState extends State<HomePageDrawer> {
       width: MediaQuery.of(context).size.width * .5,
       color: AppColors().secondaryColor,
       child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
+              Icon(Icons.person),
+              Text("Usuário"),
+            ]),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .8,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Consultar valores FIPE",
+                      style: GoogleFonts.roboto(
+                        color: AppColors().secondaryTextColor,
+                      ),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * .05),
+                    Text(
+                      "Sobre",
+                      style: GoogleFonts.roboto(
+                        color: AppColors().secondaryTextColor,
+                      ),
+                    ),
+                  ]),
+            ),
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(Icons.person),
-                  Text("Usuário"),
-                ]),
-            Text(
-              "Sair do aplicativo",
-              style: GoogleFonts.roboto(
-                color: AppColors().secondaryTextColor,
-              ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.exit_to_app,
+                  //color: AppColors().redColor,
+                ),
+                Text(
+                  "Sair do aplicativo",
+                  style: GoogleFonts.roboto(
+                    color: AppColors().redColor,
+                  ),
+                ),
+              ],
             )
           ]),
     );
