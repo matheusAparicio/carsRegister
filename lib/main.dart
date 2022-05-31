@@ -1,3 +1,4 @@
+import 'package:carsregister/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/ui/pages/splashscreen_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,13 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( 
       title: 'Mobicar',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashscreenPage(),
+      home: const HomePage(),
     );
   }
 }

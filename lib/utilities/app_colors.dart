@@ -7,6 +7,6 @@ class AppColors {
   Color secondaryColor = const Color.fromARGB(255, 255, 255, 255);
   Color secondaryTextColor = Colors.black;
 
-  Color redColor = Color.fromARGB(255, 114, 62, 58);
+  Color redColor = Color.fromARGB(255, 134, 31, 23);
 
 }
