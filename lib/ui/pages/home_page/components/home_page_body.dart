@@ -15,6 +15,7 @@ class _HomePageBodyState extends State<HomePageBody> {
         width: MediaQuery.of(context).size.width * .8,
         child: ListView.builder(
             itemCount: 15,
+            physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
               return Container(
                 height: 75,

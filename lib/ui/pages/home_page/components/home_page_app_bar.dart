@@ -21,65 +21,72 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
       decoration: BoxDecoration(
         color: AppColors().primaryColor,
       ),
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: GestureDetector(
-                onTap: () {
-                  Scaffold.of(context).openDrawer();
-                },
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * .15,
-                  child: const Icon(
-                    Icons.menu,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            Column(
-              // Título e subtítulo
-              mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const SizedBox(),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  "Mobicar",
-                  style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontSize: 18,
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * .15,
+                      child: const Icon(
+                        Icons.menu,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
-                Text(
-                  "Aluguéis de carros na palma de sua mão",
-                  style: GoogleFonts.roboto(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300),
+                Column(
+                  // Título e subtítulo
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Mobicar",
+                      style: GoogleFonts.roboto(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                    Text(
+                      "Aluguéis de carros na palma de sua mão",
+                      style: GoogleFonts.roboto(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w300),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: GestureDetector(
-                onTap: () {
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AddCarDialog();
-                      });
-                },
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * .15,
-                  child: const Icon(
-                    Icons.add,
-                    color: Colors.white,
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AddCarDialog();
+                          });
+                    },
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * .15,
+                      child: const Icon(
+                        Icons.add,
+                        color: Colors.white,
+                        size: 30
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          ]),
+              ]),
+        ],
+      ),
     );
   }
 }

@@ -27,20 +27,24 @@ class _DrawerButtonState extends State<DrawerButton> {
     return Container(
       width: widget.buttonWidth,
       decoration: widget.buttonDecoration,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Icon(
-            widget.buttonIcon,
-            color: widget.buttonColor ?? AppColors().secondaryTextColor,
-          ),
-          Text(
-            widget.buttonName,
-            style: GoogleFonts.roboto(
+      alignment: Alignment.centerLeft,
+      child: FittedBox(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Icon(
+              widget.buttonIcon,
               color: widget.buttonColor ?? AppColors().secondaryTextColor,
             ),
-          ),
-        ],
+            Text(
+              widget.buttonName,
+              maxLines: 2,
+              style: GoogleFonts.roboto(
+                color: widget.buttonColor ?? AppColors().secondaryTextColor,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

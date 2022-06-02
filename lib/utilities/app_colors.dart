@@ -8,5 +8,6 @@ class AppColors {
   Color secondaryTextColor = Colors.black;
 
   Color redColor = Color.fromARGB(255, 134, 31, 23);
+  Color greenColor = Color.fromARGB(255, 82, 156, 94);
 
 }

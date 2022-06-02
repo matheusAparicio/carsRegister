@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  double appBarHeight = 75;
+  double appBarHeight = 100;
 
   @override
   Widget build(BuildContext context) {

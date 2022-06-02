@@ -1,4 +1,5 @@
 import 'package:carsregister/ui/custom_widgets/dropdown.dart';
+import 'package:carsregister/ui/custom_widgets/main_button.dart';
 import 'package:flutter/material.dart';
 
 class AddCarDialog extends StatefulWidget {
@@ -40,20 +41,48 @@ class _AddCarDialogState extends State<AddCarDialog> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Dropdown(items: dropdownBrandItems),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text("Fabricante:"),
+                        Dropdown(items: dropdownBrandItems),
+                      ],
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Dropdown(items: dropdownModelItems),
-                        Dropdown(items: dropdownYearsItems),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text("Modelo:"),
+                            Dropdown(items: dropdownModelItems),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text("Ano:"),
+                            Dropdown(items: dropdownYearsItems),
+                          ],
+                        ),
                       ],
                     ),
-                    Text("Valor FIPE"),
-                    Text("R\$100.000,00"),
+                    Column(
+                      children: const [
+                        Text("Valor FIPE:"),
+                        SizedBox(height: 10,),
+                        Text("R\$100.000,00"),
+                      ],
+                    ),
                   ],
                 ),
               ),
-              Text("Confirmar"),
+              MainButton(
+                buttonName: "Confirmar",
+                onPressed: {},
+                width: 125,
+                height: 40,
+              ),
             ],
           )),
     );
