@@ -1,5 +1,5 @@
 import 'package:carsregister/ui/pages/home_page/home_page.dart';
-import 'package:carsregister/utilities/app_colors.dart';
+import 'package:carsregister/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -12,14 +12,19 @@ class SplashscreenPage extends StatefulWidget {
 }
 
 class _SplashscreenPageState extends State<SplashscreenPage> {
+
+  Future getApiData() async {
+
+  }
+
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 3500)).then(
-      (value) => Navigator.pushReplacement(
+    Future.delayed(const Duration(milliseconds: 3500)).then((value) {
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomePage()),
-      ),
-    );
+      );
+    });
     super.initState();
   }
 
@@ -28,9 +33,8 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
     return Container(
       decoration: BoxDecoration(color: AppColors().primaryColor),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Lottie.asset(
-            "lib/assets/lottie/splashcreen_animation.json",
-            repeat: false),
+        Lottie.asset("lib/assets/lottie/splashcreen_animation.json",
+            repeat: true), //TODO desativar o repeat
         Text(
           "Mobicar, aluguel de carros inteligente.",
           style: GoogleFonts.roboto(

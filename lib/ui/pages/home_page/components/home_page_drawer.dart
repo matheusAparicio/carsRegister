@@ -1,5 +1,5 @@
 import 'package:carsregister/ui/custom_widgets/drawer_button.dart';
-import 'package:carsregister/utilities/app_colors.dart';
+import 'package:carsregister/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomePageDrawer extends StatefulWidget {
