@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  Color primaryColor = const Color.fromARGB(255, 98, 87, 255);
+  Color primaryColor = Color.fromARGB(255, 105, 95, 243);
   Color primaryTextColor = Colors.white;
 
   Color secondaryColor = const Color.fromARGB(255, 255, 255, 255);
   Color secondaryTextColor = Colors.black;
 
-  Color redColor = Color.fromARGB(255, 134, 31, 23);
-  Color greenColor = Color.fromARGB(255, 82, 156, 94);
-  Color greyColor = Color.fromARGB(255, 192, 192, 192);
+  Color redColor = const Color.fromARGB(255, 134, 31, 23);
+  Color greenColor = const Color.fromARGB(255, 82, 156, 94);
+  Color greyColor = const Color.fromARGB(255, 192, 192, 192);
 
-  Color transparent = Color.fromARGB(0, 0, 0, 0);
+  Color shadowColor = Color.fromARGB(117, 46, 46, 46);
+
+  Color transparent = const Color.fromARGB(0, 0, 0, 0);
 
 }

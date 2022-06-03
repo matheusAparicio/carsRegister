@@ -1,6 +1,5 @@
 import 'package:carsregister/ui/custom_widgets/add_car_dialog/components/add_car_dialog_info.dart';
 import 'package:carsregister/ui/custom_widgets/add_car_dialog/components/add_car_dialog_payment.dart';
-import 'package:carsregister/ui/custom_widgets/dropdown.dart';
 import 'package:carsregister/ui/custom_widgets/main_button.dart';
 import 'package:carsregister/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -20,15 +19,34 @@ class _AddCarDialogState extends State<AddCarDialog> {
   Widget build(BuildContext context) {
     return Center(
       child: Material(
+        color: AppColors().transparent,
+        borderRadius: BorderRadius.circular(25),
         child: Container(
-          width: MediaQuery.of(context).size.width * .7,
+          width: MediaQuery.of(context).size.width * .725,
           height: MediaQuery.of(context).size.height * .6,
-          decoration: BoxDecoration(),
+          margin: MediaQuery.of(context).viewInsets,
+          decoration: BoxDecoration(
+              color: AppColors().secondaryColor,
+              borderRadius: BorderRadius.circular(25),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors().shadowColor,
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 5), // changes position of shadow
+                ),
+              ]),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Adicionar carro"),
+              Text(
+                "Adicionar carro",
+                style: GoogleFonts.roboto(
+                  color: AppColors().secondaryTextColor,
+                  fontSize: 16,
+                ),
+              ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .7,
                 height: MediaQuery.of(context).size.height * .05,
@@ -43,10 +61,15 @@ class _AddCarDialogState extends State<AddCarDialog> {
                       child: Container(
                         width: MediaQuery.of(context).size.width * .35,
                         height: MediaQuery.of(context).size.height * .05,
-                        color: firstTabSelected
-                            ? AppColors().primaryColor
-                            : AppColors().transparent,
                         alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          border: !firstTabSelected
+                              ? const Border(bottom: BorderSide())
+                              : null,
+                          color: firstTabSelected
+                              ? AppColors().primaryColor
+                              : AppColors().transparent,
+                        ),
                         child: Text(
                           "Dados cadastrais",
                           textAlign: TextAlign.center,
@@ -66,12 +89,17 @@ class _AddCarDialogState extends State<AddCarDialog> {
                       child: Container(
                         width: MediaQuery.of(context).size.width * .35,
                         height: MediaQuery.of(context).size.height * .05,
-                        color: !firstTabSelected
-                            ? AppColors().primaryColor
-                            : AppColors().transparent,
                         alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          border: firstTabSelected
+                              ? const Border(bottom: BorderSide())
+                              : null,
+                          color: !firstTabSelected
+                              ? AppColors().primaryColor
+                              : AppColors().transparent,
+                        ),
                         child: Text(
-                          "Formas de pagamento",
+                          "Forma de cobrança",
                           textAlign: TextAlign.center,
                           style: GoogleFonts.roboto(
                               color: !firstTabSelected

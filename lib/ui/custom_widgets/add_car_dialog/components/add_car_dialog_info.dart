@@ -1,5 +1,7 @@
 import 'package:carsregister/ui/custom_widgets/dropdown.dart';
+import 'package:carsregister/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AddCarDialogInfo extends StatefulWidget {
   const AddCarDialogInfo({Key? key}) : super(key: key);
@@ -32,7 +34,12 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Fabricante:"),
+            Text(
+              "Fabricante:",
+              style: GoogleFonts.roboto(
+                color: AppColors().secondaryTextColor,
+              ),
+            ),
             Dropdown(items: dropdownBrandItems),
           ],
         ),
@@ -42,26 +49,46 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("Modelo:"),
+                Text(
+                  "Modelo:",
+                  style: GoogleFonts.roboto(
+                    color: AppColors().secondaryTextColor,
+                  ),
+                ),
                 Dropdown(items: dropdownModelItems),
               ],
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("Ano:"),
+                Text(
+                  "Ano:",
+                  style: GoogleFonts.roboto(
+                    color: AppColors().secondaryTextColor,
+                  ),
+                ),
                 Dropdown(items: dropdownYearsItems),
               ],
             ),
           ],
         ),
         Column(
-          children: const [
-            Text("Valor FIPE:"),
-            SizedBox(
+          children: [
+            Text(
+              "Valor FIPE:",
+              style: GoogleFonts.roboto(
+                color: AppColors().secondaryTextColor,
+              ),
+            ),
+            const SizedBox(
               height: 10,
             ),
-            Text("R\$100.000,00"),
+            Text(
+              "R\$100.000,00",
+              style: GoogleFonts.roboto(
+                color: AppColors().secondaryTextColor,
+              ),
+            ),
           ],
         ),
       ],
