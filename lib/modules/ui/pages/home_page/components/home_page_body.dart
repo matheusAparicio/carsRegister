@@ -1,3 +1,5 @@
+import 'package:carsregister/modules/database/select_car_database.dart';
+import 'package:carsregister/modules/domain/model/car_entity.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,6 +18,13 @@ class _HomePageBodyState extends State<HomePageBody> {
   String carYear = "2022";
 
   @override
+  void initState() {
+    
+    //List<CarEntity> carsList = SelectCarDatabase().select();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
@@ -28,8 +37,9 @@ class _HomePageBodyState extends State<HomePageBody> {
                 height: 75,
                 margin: const EdgeInsets.symmetric(vertical: 15),
                 decoration: BoxDecoration(
-                    //border: Border.all(),
-                    borderRadius: BorderRadius.circular(25)),
+                  //border: Border.all(),
+                  borderRadius: BorderRadius.circular(25),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -87,8 +97,8 @@ class _HomePageBodyState extends State<HomePageBody> {
                     Container(
                       width: 25,
                       decoration: const BoxDecoration(
-                        //border: Border(left: BorderSide()),
-                      ),
+                          //border: Border(left: BorderSide()),
+                          ),
                       alignment: Alignment.center,
                       margin: const EdgeInsets.only(left: 5),
                       child: const Icon(Icons.edit_outlined, size: 25),

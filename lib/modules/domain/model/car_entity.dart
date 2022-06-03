@@ -1,26 +1,38 @@
 class CarEntity {
   CarEntity({
-    required this.carBrand,
-    required this.carModel,
-    required this.carYear,
-    required this.carFIPE,
+    required this.carId,
+    required this.carBrandCode,
+    required this.carBrandName,
+    required this.carModelCode,
+    required this.carModelName,
+    required this.carYearCode,
+    required this.carYearName,
+    required this.carFipe,
     required this.billingMethod,
     required this.billingValue,
     required this.isGasCharged,
   });
-  late final String carBrand;
-  late final String carModel;
-  late final String carYear;
-  late final String carFIPE;
+  late final int carId;
+  late final String carBrandCode;
+  late final String carBrandName;
+  late final String carModelCode;
+  late final String carModelName;
+  late final String carYearCode;
+  late final String carYearName;
+  late final String carFipe;
   late final String billingMethod;
-  late final int billingValue;
+  late final String billingValue;
   late final bool isGasCharged;
   
   CarEntity.fromJson(Map<String, dynamic> json){
-    carBrand = json['carBrand'];
-    carModel = json['carModel'];
-    carYear = json['carYear'];
-    carFIPE = json['carFIPE'];
+    carId = json['carId'];
+    carBrandCode = json['carBrandCode'];
+    carBrandName = json['carBrandName'];
+    carModelCode = json['carModelCode'];
+    carModelName = json['carModelName'];
+    carYearCode = json['carYearCode'];
+    carYearName = json['carYearName'];
+    carFipe = json['carFipe'];
     billingMethod = json['billingMethod'];
     billingValue = json['billingValue'];
     isGasCharged = json['isGasCharged'];
@@ -28,10 +40,14 @@ class CarEntity {
 
   Map<String, dynamic> toJson() {
     final _data = <String, dynamic>{};
-    _data['carBrand'] = carBrand;
-    _data['carModel'] = carModel;
-    _data['carYear'] = carYear;
-    _data['carFIPE'] = carFIPE;
+    _data['carId'] = carId;
+    _data['carBrandCode'] = carBrandCode;
+    _data['carBrandName'] = carBrandName;
+    _data['carModelCode'] = carModelCode;
+    _data['carModelName'] = carModelName;
+    _data['carYearCode'] = carYearCode;
+    _data['carYearName'] = carYearName;
+    _data['carFipe'] = carFipe;
     _data['billingMethod'] = billingMethod;
     _data['billingValue'] = billingValue;
     _data['isGasCharged'] = isGasCharged;

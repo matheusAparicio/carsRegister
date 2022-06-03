@@ -1,3 +1,4 @@
+import 'package:carsregister/modules/database/save_car_database.dart';
 import 'package:carsregister/modules/ui/custom_widgets/add_car_dialog/components/add_car_dialog_info.dart';
 import 'package:carsregister/modules/ui/custom_widgets/add_car_dialog/components/add_car_dialog_payment.dart';
 import 'package:carsregister/modules/ui/custom_widgets/main_button.dart';
@@ -122,6 +123,17 @@ class _AddCarDialogState extends State<AddCarDialog> {
               MainButton(
                 buttonName: "Confirmar",
                 onPressed: () {
+                  SaveCarDatabase().save(
+                      registerState.dropdownBrandValue[0],
+                      registerState.dropdownBrandValue[1],
+                      registerState.dropdownModelValue[0],
+                      registerState.dropdownModelValue[1],
+                      registerState.dropdownYearValue[0],
+                      registerState.dropdownYearValue[1],
+                      registerState.carFipeValue,
+                      registerState.dropdownBillingFormValue,
+                      1,
+                      registerState.isGasCharged);
                   registerState.resetValues();
                   Navigator.pushReplacement(
                     context,

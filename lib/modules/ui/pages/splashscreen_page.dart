@@ -1,3 +1,6 @@
+import 'package:carsregister/modules/database/cars_database.dart';
+import 'package:carsregister/modules/database/database_connection.dart';
+import 'package:carsregister/modules/database/select_car_database.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
@@ -15,6 +18,8 @@ class SplashscreenPage extends StatefulWidget {
 class _SplashscreenPageState extends State<SplashscreenPage> {
   @override
   void initState() {
+    DatabaseConnection().get();
+    SelectCarDatabase().select();
     registerState.getCarBrands().then((value) {
       Future.delayed(const Duration(milliseconds: 3500)).then((value) {
         Navigator.pushReplacement(
