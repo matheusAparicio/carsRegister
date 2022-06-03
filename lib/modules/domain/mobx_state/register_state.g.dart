@@ -29,31 +29,47 @@ mixin _$RegisterState on _RegisterStateBase, Store {
       Atom(name: '_RegisterStateBase.dropdownModelItems', context: context);
 
   @override
-  List<String> get dropdownModelItems {
+  List<CarModelEntity> get dropdownModelItems {
     _$dropdownModelItemsAtom.reportRead();
     return super.dropdownModelItems;
   }
 
   @override
-  set dropdownModelItems(List<String> value) {
+  set dropdownModelItems(List<CarModelEntity> value) {
     _$dropdownModelItemsAtom.reportWrite(value, super.dropdownModelItems, () {
       super.dropdownModelItems = value;
     });
   }
 
-  late final _$dropdownYearsItemsAtom =
-      Atom(name: '_RegisterStateBase.dropdownYearsItems', context: context);
+  late final _$dropdownYearItemsAtom =
+      Atom(name: '_RegisterStateBase.dropdownYearItems', context: context);
 
   @override
-  List<String> get dropdownYearsItems {
-    _$dropdownYearsItemsAtom.reportRead();
-    return super.dropdownYearsItems;
+  List<CarYearEntity> get dropdownYearItems {
+    _$dropdownYearItemsAtom.reportRead();
+    return super.dropdownYearItems;
   }
 
   @override
-  set dropdownYearsItems(List<String> value) {
-    _$dropdownYearsItemsAtom.reportWrite(value, super.dropdownYearsItems, () {
-      super.dropdownYearsItems = value;
+  set dropdownYearItems(List<CarYearEntity> value) {
+    _$dropdownYearItemsAtom.reportWrite(value, super.dropdownYearItems, () {
+      super.dropdownYearItems = value;
+    });
+  }
+
+  late final _$carFipeValueAtom =
+      Atom(name: '_RegisterStateBase.carFipeValue', context: context);
+
+  @override
+  String get carFipeValue {
+    _$carFipeValueAtom.reportRead();
+    return super.carFipeValue;
+  }
+
+  @override
+  set carFipeValue(String value) {
+    _$carFipeValueAtom.reportWrite(value, super.carFipeValue, () {
+      super.carFipeValue = value;
     });
   }
 
@@ -167,24 +183,31 @@ mixin _$RegisterState on _RegisterStateBase, Store {
       AsyncAction('_RegisterStateBase.getCarModels', context: context);
 
   @override
-  Future<dynamic> getCarModels() {
-    return _$getCarModelsAsyncAction.run(() => super.getCarModels());
+  Future<dynamic> getCarModels({required String brandCode}) {
+    return _$getCarModelsAsyncAction
+        .run(() => super.getCarModels(brandCode: brandCode));
   }
 
   late final _$getCarYearsAsyncAction =
       AsyncAction('_RegisterStateBase.getCarYears', context: context);
 
   @override
-  Future<dynamic> getCarYears() {
-    return _$getCarYearsAsyncAction.run(() => super.getCarYears());
+  Future<dynamic> getCarYears(
+      {required String brandCode, required String modelCode}) {
+    return _$getCarYearsAsyncAction.run(
+        () => super.getCarYears(brandCode: brandCode, modelCode: modelCode));
   }
 
   late final _$getCarFipeAsyncAction =
       AsyncAction('_RegisterStateBase.getCarFipe', context: context);
 
   @override
-  Future<dynamic> getCarFipe() {
-    return _$getCarFipeAsyncAction.run(() => super.getCarFipe());
+  Future<dynamic> getCarFipe(
+      {required String brandCode,
+      required String modelCode,
+      required String yearCode}) {
+    return _$getCarFipeAsyncAction.run(() => super.getCarFipe(
+        brandCode: brandCode, modelCode: modelCode, yearCode: yearCode));
   }
 
   @override
@@ -192,7 +215,8 @@ mixin _$RegisterState on _RegisterStateBase, Store {
     return '''
 dropdownBrandItems: ${dropdownBrandItems},
 dropdownModelItems: ${dropdownModelItems},
-dropdownYearsItems: ${dropdownYearsItems},
+dropdownYearItems: ${dropdownYearItems},
+carFipeValue: ${carFipeValue},
 dropdownBillingFormItems: ${dropdownBillingFormItems},
 dropdownBrandValue: ${dropdownBrandValue},
 dropdownModelValue: ${dropdownModelValue},

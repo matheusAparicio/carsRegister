@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:carsregister/modules/domain/model/car_brand_entity.dart';
 import 'package:carsregister/modules/external/http_request.dart';
 

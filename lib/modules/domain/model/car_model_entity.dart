@@ -4,7 +4,7 @@ class CarModelEntity {
     required this.codigo,
   });
   late final String nome;
-  late final String codigo;
+  late final int codigo;
   
   CarModelEntity.fromJson(Map<String, dynamic> json){
     nome = json['nome'];
