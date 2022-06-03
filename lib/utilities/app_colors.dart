@@ -9,5 +9,8 @@ class AppColors {
 
   Color redColor = Color.fromARGB(255, 134, 31, 23);
   Color greenColor = Color.fromARGB(255, 82, 156, 94);
+  Color greyColor = Color.fromARGB(255, 192, 192, 192);
+
+  Color transparent = Color.fromARGB(0, 0, 0, 0);
 
 }
