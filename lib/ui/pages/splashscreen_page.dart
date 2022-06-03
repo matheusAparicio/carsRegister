@@ -28,8 +28,8 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
     return Container(
       decoration: BoxDecoration(color: AppColors().primaryColor),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Lottie.network(
-            "https://assets6.lottiefiles.com/private_files/lf30_hsabbeks.json",
+        Lottie.asset(
+            "lib/assets/lottie/splashcreen_animation.json",
             repeat: false),
         Text(
           "Mobicar, aluguel de carros inteligente.",

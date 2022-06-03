@@ -1,4 +1,7 @@
+import 'package:carsregister/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePageBody extends StatefulWidget {
   const HomePageBody({Key? key}) : super(key: key);
@@ -8,6 +11,10 @@ class HomePageBody extends StatefulWidget {
 }
 
 class _HomePageBodyState extends State<HomePageBody> {
+  String carBrand = "Renault";
+  String carModel = "Captur";
+  String carYear = "2022";
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -20,32 +27,71 @@ class _HomePageBodyState extends State<HomePageBody> {
               return Container(
                 height: 75,
                 margin: const EdgeInsets.symmetric(vertical: 15),
-                decoration: BoxDecoration(border: Border.all()),
+                decoration: BoxDecoration(
+                    //border: Border.all(),
+                    borderRadius: BorderRadius.circular(25)),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const SizedBox(
+                    Container(
                       width: 50,
-                      child: Icon(Icons.car_rental, size: 40),
+                      decoration: const BoxDecoration(
+                          border: Border(right: BorderSide())),
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(right: 5),
+                      child: const FaIcon(FontAwesomeIcons.car, size: 30),
                     ),
                     Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: const [
-                                Text("Fabricante"),
-                                Text("Modelo"),
-                              ]),
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: const [
-                                Text("Ano"),
-                                Text("Valor FIPE"),
-                              ]),
-                        ],
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  carBrand,
+                                  style: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors().secondaryTextColor),
+                                ),
+                                const SizedBox(width: 5),
+                                Text(
+                                  carModel,
+                                  style: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors().secondaryTextColor),
+                                ),
+                                const SizedBox(width: 5),
+                                Text(
+                                  carYear,
+                                  style: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors().secondaryTextColor),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              "Valor FIPE: R\$50.000,00",
+                              style: GoogleFonts.roboto(
+                                color: AppColors().secondaryTextColor,
+                              ),
+                            ),
+                            Text(
+                              "Aluguel: R\$100,00/dia",
+                              style: GoogleFonts.roboto(
+                                color: AppColors().secondaryTextColor,
+                              ),
+                            ),
+                          ]),
+                    ),
+                    Container(
+                      width: 25,
+                      decoration: const BoxDecoration(
+                        //border: Border(left: BorderSide()),
                       ),
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.only(left: 5),
+                      child: const Icon(Icons.edit_outlined, size: 25),
                     ),
                   ],
                 ),
