@@ -94,13 +94,13 @@ mixin _$RegisterState on _RegisterStateBase, Store {
       Atom(name: '_RegisterStateBase.dropdownBrandValue', context: context);
 
   @override
-  String get dropdownBrandValue {
+  List<String> get dropdownBrandValue {
     _$dropdownBrandValueAtom.reportRead();
     return super.dropdownBrandValue;
   }
 
   @override
-  set dropdownBrandValue(String value) {
+  set dropdownBrandValue(List<String> value) {
     _$dropdownBrandValueAtom.reportWrite(value, super.dropdownBrandValue, () {
       super.dropdownBrandValue = value;
     });
@@ -110,13 +110,13 @@ mixin _$RegisterState on _RegisterStateBase, Store {
       Atom(name: '_RegisterStateBase.dropdownModelValue', context: context);
 
   @override
-  String get dropdownModelValue {
+  List<String> get dropdownModelValue {
     _$dropdownModelValueAtom.reportRead();
     return super.dropdownModelValue;
   }
 
   @override
-  set dropdownModelValue(String value) {
+  set dropdownModelValue(List<String> value) {
     _$dropdownModelValueAtom.reportWrite(value, super.dropdownModelValue, () {
       super.dropdownModelValue = value;
     });
@@ -126,13 +126,13 @@ mixin _$RegisterState on _RegisterStateBase, Store {
       Atom(name: '_RegisterStateBase.dropdownYearValue', context: context);
 
   @override
-  String get dropdownYearValue {
+  List<String> get dropdownYearValue {
     _$dropdownYearValueAtom.reportRead();
     return super.dropdownYearValue;
   }
 
   @override
-  set dropdownYearValue(String value) {
+  set dropdownYearValue(List<String> value) {
     _$dropdownYearValueAtom.reportWrite(value, super.dropdownYearValue, () {
       super.dropdownYearValue = value;
     });

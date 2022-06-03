@@ -33,13 +33,13 @@ abstract class _RegisterStateBase with Store {
   ];
 
   @observable
-  String dropdownBrandValue = "";
+  List<String> dropdownBrandValue = ["", ""]; // O index 0 é o código, o index 1 é o nome.
 
   @observable
-  String dropdownModelValue = "";
+  List<String> dropdownModelValue = ["", ""];
 
   @observable
-  String dropdownYearValue = "";
+  List<String> dropdownYearValue = ["", ""];
 
   @observable
   String dropdownBillingFormValue = "Por hora";
@@ -51,7 +51,8 @@ abstract class _RegisterStateBase with Store {
   Future getCarBrands() async {
     dropdownBrandItems = await CarBrandResponse().get().then((value) {
       dropdownBrandItems = value;
-      dropdownBrandValue = dropdownBrandItems[0].codigo;
+      dropdownBrandValue[0] = dropdownBrandItems[0].codigo;
+      dropdownBrandValue[1] = dropdownBrandItems[0].nome;
       return value;
     });
   }
@@ -61,7 +62,8 @@ abstract class _RegisterStateBase with Store {
     dropdownModelItems =
         await CarModelResponse().get(brandCode: brandCode).then((value) {
       dropdownModelItems = value;
-      dropdownModelValue = dropdownModelItems[0].codigo.toString();
+      dropdownModelValue[0] = dropdownModelItems[0].codigo.toString();
+      dropdownModelValue[1] = dropdownModelItems[0].nome.toString();
       return value;
     });
   }
@@ -73,7 +75,8 @@ abstract class _RegisterStateBase with Store {
         .get(brandCode: brandCode, modelCode: modelCode)
         .then((value) {
       dropdownYearItems = value;
-      dropdownYearValue = dropdownYearItems[0].codigo;
+      dropdownYearValue[0] = dropdownYearItems[0].codigo;
+      dropdownYearValue[1] = dropdownYearItems[0].nome;
       return value;
     });
   }
@@ -98,8 +101,8 @@ abstract class _RegisterStateBase with Store {
     dropdownYearItems = [];
     carFipeValue = "R\$0,00";
 
-    dropdownModelValue = "";
-    dropdownYearValue = "";
+    dropdownModelValue = ["", ""];
+    dropdownYearValue = ["", ""];
     dropdownBillingFormValue = "Por hora";
 
     isGasCharged = false;

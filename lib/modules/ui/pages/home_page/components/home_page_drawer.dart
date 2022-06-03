@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:carsregister/modules/ui/custom_widgets/drawer_button.dart';
 import 'package:carsregister/modules/ui/pages/about_page/about_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
@@ -45,11 +46,23 @@ class _HomePageDrawerState extends State<HomePageDrawer> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   DrawerButton(
-                    buttonIcon: Icons.search,
-                    buttonName: "Consultar valores FIPE",
+                    buttonIcon: Icons.ads_click,
+                    buttonName: "Botão demonstrativo 1",
                     buttonWidth: MediaQuery.of(context).size.width * .5,
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * .05),
+                  SizedBox(height: MediaQuery.of(context).size.height * .035),
+                  DrawerButton(
+                    buttonIcon: Icons.ads_click,
+                    buttonName: "Botão demonstrativo 2",
+                    buttonWidth: MediaQuery.of(context).size.width * .5,
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * .035),
+                  DrawerButton(
+                    buttonIcon: Icons.ads_click,
+                    buttonName: "Botão demonstrativo 3",
+                    buttonWidth: MediaQuery.of(context).size.width * .5,
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * .035),
                   DrawerButton(
                     buttonIcon: Icons.question_mark,
                     buttonName: "Sobre",
@@ -69,6 +82,9 @@ class _HomePageDrawerState extends State<HomePageDrawer> {
             buttonName: "Sair do aplicativo",
             buttonWidth: MediaQuery.of(context).size.width * .5,
             buttonColor: AppColors().redColor,
+            onTap: () {
+              exit(0);
+            }
           ),
         ],
       ),

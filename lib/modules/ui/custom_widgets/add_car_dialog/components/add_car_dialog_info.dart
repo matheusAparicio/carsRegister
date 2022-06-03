@@ -32,15 +32,19 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
                 ),
               ),
               DropdownButton(
-                  value: registerState.dropdownBrandValue,
+                  value: registerState.dropdownBrandValue[0],
                   items: registerState.dropdownBrandItems
                       .map((CarBrandEntity item) {
                     return DropdownMenuItem(
                         value: item.codigo,
-                        child: DropdownText(name: item.nome));
+                        child: DropdownText(name: item.nome),
+                        onTap: () {
+                          registerState.dropdownBrandValue[1] = item.nome;
+                        });
                   }).toList(),
                   onChanged: (String? newValue) {
-                    registerState.dropdownBrandValue = newValue!;
+                    registerState.dropdownBrandValue[0] = newValue!;
+
                     registerState.getCarModels(brandCode: newValue);
                   }),
             ],
@@ -57,22 +61,25 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .5,
                 child: DropdownButton(
-                    value: registerState.dropdownModelValue,
+                    value: registerState.dropdownModelValue[0],
                     items: registerState.dropdownModelItems
                         .map((CarModelEntity item) {
                       return DropdownMenuItem(
                           value: item.codigo.toString(),
-                          child: DropdownText(name: item.nome));
+                          child: DropdownText(name: item.nome),
+                          onTap: () {
+                            registerState.dropdownModelValue[1] = item.nome;
+                          });
                     }).toList(),
                     onChanged: (String? newValue) {
-                      registerState.dropdownModelValue = newValue!;
+                      registerState.dropdownModelValue[0] = newValue!;
                       registerState.getCarYears(
-                          brandCode: registerState.dropdownBrandValue,
+                          brandCode: registerState.dropdownBrandValue[0],
                           modelCode: newValue);
                       registerState.getCarFipe(
-                          brandCode: registerState.dropdownBrandValue,
+                          brandCode: registerState.dropdownBrandValue[0],
                           modelCode: newValue,
-                          yearCode: registerState.dropdownYearValue);
+                          yearCode: registerState.dropdownYearValue[0]);
                     }),
               ),
             ],
@@ -87,19 +94,23 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
                 ),
               ),
               DropdownButton(
-                  value: registerState.dropdownYearValue,
+                  value: registerState.dropdownYearValue[0],
                   items:
                       registerState.dropdownYearItems.map((CarYearEntity item) {
                     return DropdownMenuItem(
-                        value: item.codigo,
-                        child: DropdownText(name: item.nome));
+                      value: item.codigo,
+                      child: DropdownText(name: item.nome),
+                      onTap: () {
+                        registerState.dropdownYearValue[1] = item.nome;
+                      },
+                    );
                   }).toList(),
                   onChanged: (String? newValue) {
                     setState(() {
-                      registerState.dropdownYearValue = newValue!;
+                      registerState.dropdownYearValue[0] = newValue!;
                       registerState.getCarFipe(
-                          brandCode: registerState.dropdownBrandValue,
-                          modelCode: registerState.dropdownModelValue,
+                          brandCode: registerState.dropdownBrandValue[0],
+                          modelCode: registerState.dropdownModelValue[0],
                           yearCode: newValue);
                     });
                   }),
