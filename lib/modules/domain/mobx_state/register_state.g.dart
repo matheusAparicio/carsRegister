@@ -210,6 +210,20 @@ mixin _$RegisterState on _RegisterStateBase, Store {
         brandCode: brandCode, modelCode: modelCode, yearCode: yearCode));
   }
 
+  late final _$_RegisterStateBaseActionController =
+      ActionController(name: '_RegisterStateBase', context: context);
+
+  @override
+  void resetValues() {
+    final _$actionInfo = _$_RegisterStateBaseActionController.startAction(
+        name: '_RegisterStateBase.resetValues');
+    try {
+      return super.resetValues();
+    } finally {
+      _$_RegisterStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''

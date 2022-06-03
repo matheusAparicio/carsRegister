@@ -6,7 +6,7 @@ class MainButton extends StatefulWidget {
   String buttonName;
   double width;
   double height;
-  void onPressed;
+  dynamic onPressed;
   Decoration? boxDecoration;
   MainButton(
       {Key? key,
@@ -25,19 +25,22 @@ class _MainButtonState extends State<MainButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => widget.onPressed,
+      onTap: widget.onPressed,
       child: Container(
         width: widget.width,
         height: widget.height,
         alignment: Alignment.center,
+        margin: const EdgeInsets.only(bottom: 15),
         decoration: widget.boxDecoration ??
             BoxDecoration(
-              color: AppColors().primaryColor,
-              borderRadius: BorderRadius.circular(15)
-            ),
+                color: AppColors().primaryColor,
+                borderRadius: BorderRadius.circular(25)),
         child: Text(
           widget.buttonName,
-          style: GoogleFonts.roboto(color: AppColors().primaryTextColor),
+          style: GoogleFonts.roboto(
+            color: AppColors().primaryTextColor,
+            fontSize: 16
+          ),
         ),
       ),
     );

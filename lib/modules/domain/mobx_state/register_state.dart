@@ -91,4 +91,17 @@ abstract class _RegisterStateBase with Store {
       return value;
     });
   }
+
+  @action
+  void resetValues() {
+    dropdownModelItems = [];
+    dropdownYearItems = [];
+    carFipeValue = "R\$0,00";
+
+    dropdownModelValue = "";
+    dropdownYearValue = "";
+    dropdownBillingFormValue = "Por hora";
+
+    isGasCharged = false;
+  }
 }

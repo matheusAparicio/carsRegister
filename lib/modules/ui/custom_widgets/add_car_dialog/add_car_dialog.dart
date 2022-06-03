@@ -1,9 +1,11 @@
 import 'package:carsregister/modules/ui/custom_widgets/add_car_dialog/components/add_car_dialog_info.dart';
 import 'package:carsregister/modules/ui/custom_widgets/add_car_dialog/components/add_car_dialog_payment.dart';
 import 'package:carsregister/modules/ui/custom_widgets/main_button.dart';
+import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 
 class AddCarDialog extends StatefulWidget {
   const AddCarDialog({Key? key}) : super(key: key);
@@ -119,9 +121,15 @@ class _AddCarDialogState extends State<AddCarDialog> {
               ),
               MainButton(
                 buttonName: "Confirmar",
-                onPressed: {},
-                width: 125,
-                height: 40,
+                onPressed: () {
+                  registerState.resetValues();
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                },
+                width: 150,
+                height: 60,
               ),
             ],
           ),

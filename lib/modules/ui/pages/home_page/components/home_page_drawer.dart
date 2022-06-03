@@ -1,4 +1,5 @@
 import 'package:carsregister/modules/ui/custom_widgets/drawer_button.dart';
+import 'package:carsregister/modules/ui/pages/about_page/about_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -53,6 +54,13 @@ class _HomePageDrawerState extends State<HomePageDrawer> {
                     buttonIcon: Icons.question_mark,
                     buttonName: "Sobre",
                     buttonWidth: MediaQuery.of(context).size.width * .5,
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AboutPage()),
+                      );
+                    },
                   ),
                 ]),
           ),
