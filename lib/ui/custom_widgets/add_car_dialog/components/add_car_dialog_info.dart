@@ -1,3 +1,4 @@
+import 'package:carsregister/mobx_state/register_state.dart';
 import 'package:carsregister/ui/custom_widgets/dropdown.dart';
 import 'package:carsregister/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -11,21 +12,6 @@ class AddCarDialogInfo extends StatefulWidget {
 }
 
 class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
-  var dropdownBrandItems = [
-    "Renault",
-    "Ford",
-  ];
-
-  var dropdownModelItems = [
-    "Sandero",
-    "Captur",
-  ];
-
-  var dropdownYearsItems = [
-    "2022",
-    "2021",
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,7 +26,19 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
                 color: AppColors().secondaryTextColor,
               ),
             ),
-            Dropdown(items: dropdownBrandItems),
+            DropdownButton(
+                value: registerState.dropdownBrandValue,
+                items: registerState.dropdownBrandItems.map((String item) {
+                  return DropdownMenuItem(
+                    value: item,
+                    child: Text(item),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    registerState.dropdownBrandValue = newValue!;
+                  });
+                }),
           ],
         ),
         Row(
@@ -55,7 +53,19 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
                     color: AppColors().secondaryTextColor,
                   ),
                 ),
-                Dropdown(items: dropdownModelItems),
+                DropdownButton(
+                value: registerState.dropdownModelValue,
+                items: registerState.dropdownModelItems.map((String item) {
+                  return DropdownMenuItem(
+                    value: item,
+                    child: Text(item),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    registerState.dropdownModelValue = newValue!;
+                  });
+                }),
               ],
             ),
             Column(
@@ -67,7 +77,19 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
                     color: AppColors().secondaryTextColor,
                   ),
                 ),
-                Dropdown(items: dropdownYearsItems),
+                DropdownButton(
+                value: registerState.dropdownYearValue,
+                items: registerState.dropdownYearsItems.map((String item) {
+                  return DropdownMenuItem(
+                    value: item,
+                    child: Text(item),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {
+                  setState(() {
+                    registerState.dropdownYearValue = newValue!;
+                  });
+                }),
               ],
             ),
           ],

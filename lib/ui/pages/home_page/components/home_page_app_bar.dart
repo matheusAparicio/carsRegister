@@ -56,7 +56,7 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
                       ),
                     ),
                     Text(
-                      "Aluguéis de carros na palma de sua mão",
+                      "Aluguel de carros na palma de sua mão",
                       style: GoogleFonts.roboto(
                           color: Colors.white,
                           fontSize: 14,

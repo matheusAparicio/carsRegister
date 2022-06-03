@@ -27,20 +27,23 @@ class _DrawerButtonState extends State<DrawerButton> {
   Widget build(BuildContext context) {
     return Container(
       width: widget.buttonWidth,
-      //decoration: widget.buttonDecoration,
+      decoration: widget.buttonDecoration,
       alignment: Alignment.centerLeft,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(
-            width: widget.buttonWidth * .12,
+          Container(
+            width: widget.buttonWidth * .1,
+            margin: EdgeInsets.only(right: widget.buttonWidth * .05),
+            alignment: Alignment.center,
             child: Icon(
               widget.buttonIcon,
               color: widget.buttonColor ?? AppColors().secondaryTextColor,
             ),
           ),
-          SizedBox(
-            width: widget.buttonWidth * .575,
+          Container(
+            width: widget.buttonWidth * .85,
+            //color: Colors.amberAccent,
             child: AutoSizeText(
               widget.buttonName,
               maxLines: 2,

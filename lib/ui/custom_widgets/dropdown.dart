@@ -1,8 +1,10 @@
+import 'package:carsregister/mobx_state/register_state.dart';
 import 'package:flutter/material.dart';
 
 class Dropdown extends StatefulWidget {
   List<String> items;
-  Dropdown({Key? key, required this.items}) : super(key: key);
+  String value;
+  Dropdown({Key? key, required this.items, required this.value}) : super(key: key);
 
   @override
   State<Dropdown> createState() => _DropdownState();
@@ -10,28 +12,8 @@ class Dropdown extends StatefulWidget {
 
 class _DropdownState extends State<Dropdown> {
 
-  String dropdownValue = "Value 1";
-
-  @override
-  void initState() {
-    dropdownValue = widget.items[0];
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return DropdownButton(
-        value: dropdownValue,
-        items: widget.items.map((String item) {
-          return DropdownMenuItem(
-            value: item,
-            child: Text(item),
-          );
-        }).toList(),
-        onChanged: (String? newValue) {
-          setState(() {
-            dropdownValue = newValue!;
-          });
-        });
+    return Container();
   }
 }
