@@ -1,5 +1,5 @@
-import 'package:carsregister/mobx_state/register_state.dart';
-import 'package:carsregister/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
+import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

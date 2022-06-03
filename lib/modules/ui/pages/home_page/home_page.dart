@@ -1,6 +1,6 @@
-import 'package:carsregister/ui/pages/home_page/components/home_page_app_bar.dart';
-import 'package:carsregister/ui/pages/home_page/components/home_page_body.dart';
-import 'package:carsregister/ui/pages/home_page/components/home_page_drawer.dart';
+import 'package:carsregister/modules/ui/pages/home_page/components/home_page_app_bar.dart';
+import 'package:carsregister/modules/ui/pages/home_page/components/home_page_body.dart';
+import 'package:carsregister/modules/ui/pages/home_page/components/home_page_drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

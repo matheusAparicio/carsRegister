@@ -1,4 +1,4 @@
-import 'package:carsregister/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';

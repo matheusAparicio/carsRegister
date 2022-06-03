@@ -13,13 +13,13 @@ mixin _$RegisterState on _RegisterStateBase, Store {
       Atom(name: '_RegisterStateBase.dropdownBrandItems', context: context);
 
   @override
-  List<String> get dropdownBrandItems {
+  List<CarBrandEntity> get dropdownBrandItems {
     _$dropdownBrandItemsAtom.reportRead();
     return super.dropdownBrandItems;
   }
 
   @override
-  set dropdownBrandItems(List<String> value) {
+  set dropdownBrandItems(List<CarBrandEntity> value) {
     _$dropdownBrandItemsAtom.reportWrite(value, super.dropdownBrandItems, () {
       super.dropdownBrandItems = value;
     });
@@ -153,6 +153,38 @@ mixin _$RegisterState on _RegisterStateBase, Store {
     _$isGasChargedAtom.reportWrite(value, super.isGasCharged, () {
       super.isGasCharged = value;
     });
+  }
+
+  late final _$getCarBrandsAsyncAction =
+      AsyncAction('_RegisterStateBase.getCarBrands', context: context);
+
+  @override
+  Future<dynamic> getCarBrands() {
+    return _$getCarBrandsAsyncAction.run(() => super.getCarBrands());
+  }
+
+  late final _$getCarModelsAsyncAction =
+      AsyncAction('_RegisterStateBase.getCarModels', context: context);
+
+  @override
+  Future<dynamic> getCarModels() {
+    return _$getCarModelsAsyncAction.run(() => super.getCarModels());
+  }
+
+  late final _$getCarYearsAsyncAction =
+      AsyncAction('_RegisterStateBase.getCarYears', context: context);
+
+  @override
+  Future<dynamic> getCarYears() {
+    return _$getCarYearsAsyncAction.run(() => super.getCarYears());
+  }
+
+  late final _$getCarFipeAsyncAction =
+      AsyncAction('_RegisterStateBase.getCarFipe', context: context);
+
+  @override
+  Future<dynamic> getCarFipe() {
+    return _$getCarFipeAsyncAction.run(() => super.getCarFipe());
   }
 
   @override

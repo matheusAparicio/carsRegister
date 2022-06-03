@@ -1,5 +1,6 @@
-import 'package:carsregister/ui/pages/home_page/home_page.dart';
-import 'package:carsregister/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
+import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
+import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -12,19 +13,17 @@ class SplashscreenPage extends StatefulWidget {
 }
 
 class _SplashscreenPageState extends State<SplashscreenPage> {
-
-  Future getApiData() async {
-
-  }
-
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 3500)).then((value) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const HomePage()),
-      );
+    registerState.getCarBrands().then((value) {
+      Future.delayed(const Duration(milliseconds: 3500)).then((value) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
+      });
     });
+
     super.initState();
   }
 

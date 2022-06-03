@@ -1,7 +1,7 @@
-import 'package:carsregister/ui/custom_widgets/add_car_dialog/components/add_car_dialog_info.dart';
-import 'package:carsregister/ui/custom_widgets/add_car_dialog/components/add_car_dialog_payment.dart';
-import 'package:carsregister/ui/custom_widgets/main_button.dart';
-import 'package:carsregister/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/ui/custom_widgets/add_car_dialog/components/add_car_dialog_info.dart';
+import 'package:carsregister/modules/ui/custom_widgets/add_car_dialog/components/add_car_dialog_payment.dart';
+import 'package:carsregister/modules/ui/custom_widgets/main_button.dart';
+import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

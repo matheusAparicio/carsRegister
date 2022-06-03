@@ -1,5 +1,4 @@
-import 'package:carsregister/ui/pages/home_page/home_page.dart';
-import 'package:carsregister/ui/pages/splashscreen_page.dart';
+import 'package:carsregister/modules/ui/pages/splashscreen_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
