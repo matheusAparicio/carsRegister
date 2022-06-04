@@ -13,13 +13,13 @@ mixin _$RegisterState on _RegisterStateBase, Store {
       Atom(name: '_RegisterStateBase.carList', context: context);
 
   @override
-  List<CarEntity> get carList {
+  List<dynamic> get carList {
     _$carListAtom.reportRead();
     return super.carList;
   }
 
   @override
-  set carList(List<CarEntity> value) {
+  set carList(List<dynamic> value) {
     _$carListAtom.reportWrite(value, super.carList, () {
       super.carList = value;
     });
@@ -224,6 +224,14 @@ mixin _$RegisterState on _RegisterStateBase, Store {
       required String yearCode}) {
     return _$getCarFipeAsyncAction.run(() => super.getCarFipe(
         brandCode: brandCode, modelCode: modelCode, yearCode: yearCode));
+  }
+
+  late final _$updateCarListAsyncAction =
+      AsyncAction('_RegisterStateBase.updateCarList', context: context);
+
+  @override
+  Future updateCarList() {
+    return _$updateCarListAsyncAction.run(() => super.updateCarList());
   }
 
   late final _$_RegisterStateBaseActionController =
