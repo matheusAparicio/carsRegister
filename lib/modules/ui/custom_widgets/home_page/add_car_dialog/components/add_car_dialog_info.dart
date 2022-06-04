@@ -2,7 +2,7 @@ import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 import 'package:carsregister/modules/domain/model/car_brand_entity.dart';
 import 'package:carsregister/modules/domain/model/car_model_entity.dart';
 import 'package:carsregister/modules/domain/model/car_year_entity.dart';
-import 'package:carsregister/modules/ui/custom_widgets/dropdown_text.dart';
+import 'package:carsregister/modules/ui/custom_widgets/general/dropdown_text.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';

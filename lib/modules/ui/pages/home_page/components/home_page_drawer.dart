@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:carsregister/modules/ui/custom_widgets/drawer_button.dart';
+import 'package:carsregister/modules/ui/custom_widgets/general/drawer_button.dart';
 import 'package:carsregister/modules/ui/pages/about_page/about_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';

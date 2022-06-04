@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AboutPageAppBar extends StatefulWidget {
-  double appBarHeight;
-  AboutPageAppBar({Key? key, required this.appBarHeight}) : super(key: key);
+  final double appBarHeight;
+  const AboutPageAppBar({Key? key, required this.appBarHeight}) : super(key: key);
 
   @override
   State<AboutPageAppBar> createState() => _AboutPageAppBarState();

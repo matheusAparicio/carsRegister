@@ -1,5 +1,5 @@
 import 'package:carsregister/modules/domain/model/car_brand_entity.dart';
-import 'package:carsregister/modules/domain/model/car_fipe_entity.dart';
+import 'package:carsregister/modules/domain/model/car_entity.dart';
 import 'package:carsregister/modules/domain/model/car_model_entity.dart';
 import 'package:carsregister/modules/domain/model/car_year_entity.dart';
 import 'package:carsregister/modules/external/car_brand_response.dart';
@@ -14,6 +14,9 @@ class RegisterState = _RegisterStateBase with _$RegisterState;
 final registerState = RegisterState();
 
 abstract class _RegisterStateBase with Store {
+  @observable
+  List<CarEntity> carList = [];
+
   @observable
   List<CarBrandEntity> dropdownBrandItems = [];
 

@@ -6,11 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 class DrawerButton extends StatefulWidget {
   final IconData buttonIcon;
   final String buttonName;
-  double buttonWidth;
+  final double buttonWidth;
   final BoxDecoration? buttonDecoration;
   final Color? buttonColor;
-  dynamic onTap;
-  DrawerButton({
+  final dynamic onTap;
+  const DrawerButton({
     Key? key,
     required this.buttonIcon,
     required this.buttonName,
@@ -45,9 +45,8 @@ class _DrawerButtonState extends State<DrawerButton> {
                 color: widget.buttonColor ?? AppColors().secondaryTextColor,
               ),
             ),
-            Container(
+            SizedBox(
               width: widget.buttonWidth * .85,
-              //color: Colors.amberAccent,
               child: AutoSizeText(
                 widget.buttonName,
                 maxLines: 2,

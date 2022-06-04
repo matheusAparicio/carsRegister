@@ -1,7 +1,7 @@
-import 'package:carsregister/modules/database/save_car_database.dart';
-import 'package:carsregister/modules/ui/custom_widgets/add_car_dialog/components/add_car_dialog_info.dart';
-import 'package:carsregister/modules/ui/custom_widgets/add_car_dialog/components/add_car_dialog_payment.dart';
-import 'package:carsregister/modules/ui/custom_widgets/main_button.dart';
+import 'package:carsregister/modules/database/cars_database.dart';
+import 'package:carsregister/modules/ui/custom_widgets/general/main_button.dart';
+import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/components/add_car_dialog_info.dart';
+import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/components/add_car_dialog_payment.dart';
 import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class _AddCarDialogState extends State<AddCarDialog> {
                   color: AppColors().shadowColor,
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(0, 5), // changes position of shadow
+                  offset: const Offset(0, 5), // changes position of shadow
                 ),
               ]),
           child: Column(
@@ -123,17 +123,17 @@ class _AddCarDialogState extends State<AddCarDialog> {
               MainButton(
                 buttonName: "Confirmar",
                 onPressed: () {
-                  SaveCarDatabase().save(
-                      registerState.dropdownBrandValue[0],
-                      registerState.dropdownBrandValue[1],
-                      registerState.dropdownModelValue[0],
-                      registerState.dropdownModelValue[1],
-                      registerState.dropdownYearValue[0],
-                      registerState.dropdownYearValue[1],
-                      registerState.carFipeValue,
-                      registerState.dropdownBillingFormValue,
-                      1,
-                      registerState.isGasCharged);
+                  CarsDatabase().insertCar(
+                      carBrandCode: registerState.dropdownBrandValue[0],
+                      carBrandName: registerState.dropdownBrandValue[1],
+                      carModelCode: registerState.dropdownModelValue[0],
+                      carModelName: registerState.dropdownModelValue[1],
+                      carYearCode: registerState.dropdownYearValue[0],
+                      carYearName: registerState.dropdownYearValue[1],
+                      carFipe: registerState.carFipeValue,
+                      billingMethod: registerState.dropdownBillingFormValue,
+                      billingValue: 1,
+                      isGasCharged: registerState.isGasCharged);
                   registerState.resetValues();
                   Navigator.pushReplacement(
                     context,

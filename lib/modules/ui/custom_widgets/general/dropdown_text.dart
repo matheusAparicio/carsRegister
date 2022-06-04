@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DropdownText extends StatefulWidget {
-  String name;
-  DropdownText({Key? key, required this.name}) : super(key: key);
+  final String name;
+  const DropdownText({Key? key, required this.name}) : super(key: key);
 
   @override
   State<DropdownText> createState() => _DropdownTextState();

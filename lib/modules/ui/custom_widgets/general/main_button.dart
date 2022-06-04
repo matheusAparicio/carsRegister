@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MainButton extends StatefulWidget {
-  String buttonName;
-  double width;
-  double height;
-  dynamic onPressed;
-  Decoration? boxDecoration;
-  MainButton(
+  final String buttonName;
+  final double width;
+  final double height;
+  final dynamic onPressed;
+  final Decoration? boxDecoration;
+  const MainButton(
       {Key? key,
       required this.buttonName,
       required this.width,
