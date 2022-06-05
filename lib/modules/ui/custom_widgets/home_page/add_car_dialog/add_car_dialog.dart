@@ -1,10 +1,12 @@
 import 'package:carsregister/modules/database/cars_database.dart';
+import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/main_button.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/components/add_car_dialog_info.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/components/add_car_dialog_payment.dart';
 import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
+import 'package:carsregister/modules/ui/utilities/string_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
@@ -151,9 +153,10 @@ class _AddCarDialogState extends State<AddCarDialog> {
                       carFipe: registerState.carFipeValue,
                       billingMethod: registerState.dropdownBillingMethod,
                       billingValue: double.parse(
-                          registerState.billingValueController.text.toString()),
-                      isGasCharged: registerState.isGasCharged);
+                          registerState.billingValueController.text.toString().currencyToDouble()),
+                      isGasCharged: registerState.isGasCharged ? 1 : 0);
                   registerState.resetValues();
+                  queryState.updateCarList();
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const HomePage()),

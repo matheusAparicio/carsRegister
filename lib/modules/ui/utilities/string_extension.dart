@@ -11,5 +11,19 @@ extension StringExtension on String {
     }
     return firstWord.join('');
   }
+
+  String currencyToDouble() {
+    List convertibleString = [];
+    int commaNumber = 0;
+    for (int i = 2; i < this.length; i++) {
+      if (this[i] != '.' && this[i] != ',') {
+        convertibleString.add(this[i]);
+      } else if (this[i] == ',' && commaNumber < 1) {
+        convertibleString.add('.');
+        commaNumber++;
+      }
+    }
+    return convertibleString.join('');
+  }
   
 }

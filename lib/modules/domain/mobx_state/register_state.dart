@@ -107,7 +107,7 @@ abstract class _RegisterStateBase with Store {
     dropdownModelValue = ["", ""];
     dropdownYearValue = ["", ""];
     dropdownBillingMethod = "Por hora";
-    billingValueController.text = "";
+    billingValueController.text = "R\$ 0";
 
     isGasCharged = false;
   }

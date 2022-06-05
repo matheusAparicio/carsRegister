@@ -18,6 +18,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
   @override
   void initState() {
     CarsDatabase().initDB();
+    registerState.resetValues();
     queryState.updateCarList();
     registerState.getCarBrands().then((value) {
       Future.delayed(const Duration(milliseconds: 3500)).then((value) {
