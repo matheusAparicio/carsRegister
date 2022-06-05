@@ -1,6 +1,4 @@
-import 'package:carsregister/modules/database/cars_database.dart';
 import 'package:carsregister/modules/domain/model/car_brand_entity.dart';
-import 'package:carsregister/modules/domain/model/car_entity.dart';
 import 'package:carsregister/modules/domain/model/car_model_entity.dart';
 import 'package:carsregister/modules/domain/model/car_year_entity.dart';
 import 'package:carsregister/modules/external/car_brand_response.dart';
@@ -16,9 +14,6 @@ class RegisterState = _RegisterStateBase with _$RegisterState;
 final registerState = RegisterState();
 
 abstract class _RegisterStateBase with Store {
-  @observable
-  List<dynamic> carList = [];
-
   @observable
   List<CarBrandEntity> dropdownBrandItems = [];
 
@@ -112,14 +107,10 @@ abstract class _RegisterStateBase with Store {
     dropdownModelValue = ["", ""];
     dropdownYearValue = ["", ""];
     dropdownBillingMethod = "Por hora";
+    billingValueController.text = "";
 
     isGasCharged = false;
   }
 
-  @action
-  dynamic updateCarList() async {
-    await CarsDatabase().selectCar().then((value) {
-      carList = value.toList();
-    });
-  }
+  
 }

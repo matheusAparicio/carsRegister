@@ -9,6 +9,7 @@ class AppTextStyles {
     return GoogleFonts.roboto(
       fontSize: fontSize,
       fontWeight: fontWeight,
+      color: color,
     );
   }
 }

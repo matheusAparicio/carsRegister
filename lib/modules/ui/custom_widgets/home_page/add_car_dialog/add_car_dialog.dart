@@ -4,6 +4,7 @@ import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/components/add_car_dialog_payment.dart';
 import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
@@ -17,7 +18,7 @@ class AddCarDialog extends StatefulWidget {
 
 class _AddCarDialogState extends State<AddCarDialog> {
   bool firstTabSelected = true;
-
+  double widthMultiplier = .75;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -40,75 +41,92 @@ class _AddCarDialogState extends State<AddCarDialog> {
                 ),
               ]),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                "Adicionar carro",
-                style: GoogleFonts.roboto(
-                  color: AppColors().secondaryTextColor,
-                  fontSize: 16,
-                ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .7,
-                height: MediaQuery.of(context).size.height * .05,
-                child: Row(
+              Container(
+                width: MediaQuery.of(context).size.width * widthMultiplier,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: AppColors().primaryColor),
+                child: Column(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          firstTabSelected = true;
-                        });
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * .35,
-                        height: MediaQuery.of(context).size.height * .05,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          border: !firstTabSelected
-                              ? const Border(bottom: BorderSide())
-                              : null,
-                          color: firstTabSelected
-                              ? AppColors().primaryColor
-                              : AppColors().transparent,
-                        ),
-                        child: Text(
-                          "Dados cadastrais",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.roboto(
-                              color: firstTabSelected
-                                  ? AppColors().primaryTextColor
-                                  : AppColors().secondaryTextColor),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Text(
+                        "Adicionar carro",
+                        style: AppTextStyles().mainTextStyle(
+                          color: AppColors().primaryTextColor,
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          firstTabSelected = false;
-                        });
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * .35,
-                        height: MediaQuery.of(context).size.height * .05,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          border: firstTabSelected
-                              ? const Border(bottom: BorderSide())
-                              : null,
-                          color: !firstTabSelected
-                              ? AppColors().primaryColor
-                              : AppColors().transparent,
-                        ),
-                        child: Text(
-                          "Forma de cobrança",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.roboto(
-                              color: !firstTabSelected
-                                  ? AppColors().primaryTextColor
-                                  : AppColors().secondaryTextColor),
-                        ),
+                    SizedBox(
+                      width:
+                          MediaQuery.of(context).size.width * widthMultiplier,
+                      height: MediaQuery.of(context).size.height * .05,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                firstTabSelected = true;
+                              });
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * .35,
+                              height: MediaQuery.of(context).size.height * .05,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                border: !firstTabSelected
+                                    ? const Border(bottom: BorderSide())
+                                    : null,
+                                color: firstTabSelected
+                                    ? AppColors().primaryColor
+                                    : AppColors().secondaryColor,
+                              ),
+                              child: Text(
+                                "Dados cadastrais",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.roboto(
+                                    color: firstTabSelected
+                                        ? AppColors().primaryTextColor
+                                        : AppColors().secondaryTextColor),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                              child:
+                                  Container(color: AppColors().secondaryColor)),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                firstTabSelected = false;
+                              });
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * .35,
+                              height: MediaQuery.of(context).size.height * .05,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                border: firstTabSelected
+                                    ? const Border(bottom: BorderSide())
+                                    : null,
+                                color: !firstTabSelected
+                                    ? AppColors().primaryColor
+                                    : AppColors().secondaryColor,
+                              ),
+                              child: Text(
+                                "Forma de cobrança",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.roboto(
+                                    color: !firstTabSelected
+                                        ? AppColors().primaryTextColor
+                                        : AppColors().secondaryTextColor),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

@@ -9,22 +9,6 @@ part of 'register_state.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$RegisterState on _RegisterStateBase, Store {
-  late final _$carListAtom =
-      Atom(name: '_RegisterStateBase.carList', context: context);
-
-  @override
-  List<dynamic> get carList {
-    _$carListAtom.reportRead();
-    return super.carList;
-  }
-
-  @override
-  set carList(List<dynamic> value) {
-    _$carListAtom.reportWrite(value, super.carList, () {
-      super.carList = value;
-    });
-  }
-
   late final _$dropdownBrandItemsAtom =
       Atom(name: '_RegisterStateBase.dropdownBrandItems', context: context);
 
@@ -243,14 +227,6 @@ mixin _$RegisterState on _RegisterStateBase, Store {
         brandCode: brandCode, modelCode: modelCode, yearCode: yearCode));
   }
 
-  late final _$updateCarListAsyncAction =
-      AsyncAction('_RegisterStateBase.updateCarList', context: context);
-
-  @override
-  Future updateCarList() {
-    return _$updateCarListAsyncAction.run(() => super.updateCarList());
-  }
-
   late final _$_RegisterStateBaseActionController =
       ActionController(name: '_RegisterStateBase', context: context);
 
@@ -268,7 +244,6 @@ mixin _$RegisterState on _RegisterStateBase, Store {
   @override
   String toString() {
     return '''
-carList: ${carList},
 dropdownBrandItems: ${dropdownBrandItems},
 dropdownModelItems: ${dropdownModelItems},
 dropdownYearItems: ${dropdownYearItems},

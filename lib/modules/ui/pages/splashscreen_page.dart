@@ -1,4 +1,5 @@
 import 'package:carsregister/modules/database/cars_database.dart';
+import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
@@ -17,6 +18,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
   @override
   void initState() {
     CarsDatabase().initDB();
+    queryState.updateCarList();
     registerState.getCarBrands().then((value) {
       Future.delayed(const Duration(milliseconds: 3500)).then((value) {
         Navigator.pushReplacement(
@@ -28,7 +30,6 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
 
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
     return Container(

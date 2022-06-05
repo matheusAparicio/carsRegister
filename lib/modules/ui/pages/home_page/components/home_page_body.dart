@@ -1,5 +1,6 @@
+import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
-import 'package:carsregister/modules/ui/custom_widgets/home_page/car_list_view.dart';
+import 'package:carsregister/modules/ui/custom_widgets/home_page/car_list_view/car_list_view.dart';
 import 'package:flutter/material.dart';
 
 class HomePageBody extends StatefulWidget {
@@ -10,12 +11,6 @@ class HomePageBody extends StatefulWidget {
 }
 
 class _HomePageBodyState extends State<HomePageBody> {
-  @override
-  void initState() {
-    registerState.updateCarList();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return const Center(
