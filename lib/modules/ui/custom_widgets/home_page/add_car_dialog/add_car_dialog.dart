@@ -131,8 +131,9 @@ class _AddCarDialogState extends State<AddCarDialog> {
                       carYearCode: registerState.dropdownYearValue[0],
                       carYearName: registerState.dropdownYearValue[1],
                       carFipe: registerState.carFipeValue,
-                      billingMethod: registerState.dropdownBillingFormValue,
-                      billingValue: 1,
+                      billingMethod: registerState.dropdownBillingMethod,
+                      billingValue: double.parse(
+                          registerState.billingValueController.text.toString()),
                       isGasCharged: registerState.isGasCharged);
                   registerState.resetValues();
                   Navigator.pushReplacement(

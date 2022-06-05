@@ -21,7 +21,7 @@ class CarEntity {
   late final String carYearName;
   late final String carFipe;
   late final String billingMethod;
-  late final String billingValue;
+  late final dynamic billingValue;
   late final bool isGasCharged;
   
   CarEntity.fromJson(Map<String, dynamic> json){

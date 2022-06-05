@@ -154,20 +154,37 @@ mixin _$RegisterState on _RegisterStateBase, Store {
     });
   }
 
-  late final _$dropdownBillingFormValueAtom = Atom(
-      name: '_RegisterStateBase.dropdownBillingFormValue', context: context);
+  late final _$dropdownBillingMethodAtom =
+      Atom(name: '_RegisterStateBase.dropdownBillingMethod', context: context);
 
   @override
-  String get dropdownBillingFormValue {
-    _$dropdownBillingFormValueAtom.reportRead();
-    return super.dropdownBillingFormValue;
+  String get dropdownBillingMethod {
+    _$dropdownBillingMethodAtom.reportRead();
+    return super.dropdownBillingMethod;
   }
 
   @override
-  set dropdownBillingFormValue(String value) {
-    _$dropdownBillingFormValueAtom
-        .reportWrite(value, super.dropdownBillingFormValue, () {
-      super.dropdownBillingFormValue = value;
+  set dropdownBillingMethod(String value) {
+    _$dropdownBillingMethodAtom.reportWrite(value, super.dropdownBillingMethod,
+        () {
+      super.dropdownBillingMethod = value;
+    });
+  }
+
+  late final _$billingValueControllerAtom =
+      Atom(name: '_RegisterStateBase.billingValueController', context: context);
+
+  @override
+  TextEditingController get billingValueController {
+    _$billingValueControllerAtom.reportRead();
+    return super.billingValueController;
+  }
+
+  @override
+  set billingValueController(TextEditingController value) {
+    _$billingValueControllerAtom
+        .reportWrite(value, super.billingValueController, () {
+      super.billingValueController = value;
     });
   }
 
@@ -260,7 +277,8 @@ dropdownBillingFormItems: ${dropdownBillingFormItems},
 dropdownBrandValue: ${dropdownBrandValue},
 dropdownModelValue: ${dropdownModelValue},
 dropdownYearValue: ${dropdownYearValue},
-dropdownBillingFormValue: ${dropdownBillingFormValue},
+dropdownBillingMethod: ${dropdownBillingMethod},
+billingValueController: ${billingValueController},
 isGasCharged: ${isGasCharged}
     ''';
   }

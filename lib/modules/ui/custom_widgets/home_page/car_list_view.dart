@@ -1,6 +1,8 @@
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/ui/utilities/app_formats.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
+import 'package:carsregister/modules/ui/utilities/string_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -34,7 +36,8 @@ class _CarListViewState extends State<CarListView> {
                   Container(
                     width: 50,
                     decoration: const BoxDecoration(
-                        border: Border(right: BorderSide())),
+                      border: Border(right: BorderSide()),
+                    ),
                     alignment: Alignment.center,
                     margin: const EdgeInsets.only(right: 5),
                     child: const FaIcon(FontAwesomeIcons.car, size: 30),
@@ -49,22 +52,25 @@ class _CarListViewState extends State<CarListView> {
                               children: <TextSpan>[
                                 TextSpan(
                                   text: registerState.carList[index]
-                                      ["carBrandName"],
+                                          ["carBrandName"] +
+                                      " ",
                                 ),
                                 TextSpan(
                                     text: registerState.carList[index]
-                                        ["carModelName"],
+                                            ["carModelName"] +
+                                        " ",
                                     style: AppTextStyles().mainTextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 14)),
                                 TextSpan(
                                   text: registerState.carList[index]
-                                      ["carYearName"],
+                                          ["carYearName"]
+                                      .toString().firstWord(),
                                 ),
                               ],
                             ),
                             style: AppTextStyles().mainTextStyle(fontSize: 14),
-                            textAlign: TextAlign.center,
+                            textAlign: TextAlign.left,
                           ),
                           Text(
                             "Valor FIPE: ${registerState.carList[index]["carFipe"]}",
@@ -73,7 +79,7 @@ class _CarListViewState extends State<CarListView> {
                             ),
                           ),
                           Text(
-                            "Aluguel: R\$${registerState.carList[index]["billingValue"]}/${registerState.carList[index]["billingMethod"].substring(4)}",
+                            "Aluguel: ${AppFormats().currencyFormat.format(registerState.carList[index]["billingValue"])}/${registerState.carList[index]["billingMethod"].substring(4)}",
                             style: GoogleFonts.roboto(
                               color: AppColors().secondaryTextColor,
                             ),
@@ -81,7 +87,7 @@ class _CarListViewState extends State<CarListView> {
                         ]),
                   ),
                   Container(
-                    width: 25,
+                    width: 50,
                     decoration: const BoxDecoration(
                         //border: Border(left: BorderSide()),
                         ),

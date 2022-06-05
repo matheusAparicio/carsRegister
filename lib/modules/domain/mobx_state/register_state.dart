@@ -7,6 +7,7 @@ import 'package:carsregister/modules/external/car_brand_response.dart';
 import 'package:carsregister/modules/external/car_fipe_response.dart';
 import 'package:carsregister/modules/external/car_model_response.dart';
 import 'package:carsregister/modules/external/car_year_response.dart';
+import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'register_state.g.dart';
 
@@ -46,7 +47,10 @@ abstract class _RegisterStateBase with Store {
   List<String> dropdownYearValue = ["", ""];
 
   @observable
-  String dropdownBillingFormValue = "Por hora";
+  String dropdownBillingMethod = "Por hora";
+
+  @observable
+  TextEditingController billingValueController = TextEditingController();
 
   @observable
   bool isGasCharged = false;
@@ -107,7 +111,7 @@ abstract class _RegisterStateBase with Store {
 
     dropdownModelValue = ["", ""];
     dropdownYearValue = ["", ""];
-    dropdownBillingFormValue = "Por hora";
+    dropdownBillingMethod = "Por hora";
 
     isGasCharged = false;
   }

@@ -59,7 +59,7 @@ carYearCode TEXT NOT NULL,
 carYearName TEXT NOT NULL,
 carFipe TEXT NOT NULL,
 billingMethod TEXT NOT NULL,
-billingValue TEXT NOT NULL,
+billingValue FLOAT NOT NULL,
 isGasCharged BOOLEN NOT NULL
 );""");
   }

@@ -26,7 +26,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
               ),
             ),
             DropdownButton(
-                value: registerState.dropdownBillingFormValue,
+                value: registerState.dropdownBillingMethod,
                 items: registerState.dropdownBillingFormItems.map((String item) {
                   return DropdownMenuItem(
                     value: item,
@@ -35,7 +35,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
                 }).toList(),
                 onChanged: (String? newValue) {
                   setState(() {
-                    registerState.dropdownBillingFormValue = newValue!;
+                    registerState.dropdownBillingMethod = newValue!;
                   });
                 }),
           ],
@@ -44,7 +44,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "Valor ${registerState.dropdownBillingFormValue.toLowerCase()}:",
+              "Valor ${registerState.dropdownBillingMethod.toLowerCase()}:",
               style: GoogleFonts.roboto(
                 color: AppColors().secondaryTextColor,
               ),
@@ -54,6 +54,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
               height: 40,
               decoration: BoxDecoration(border: Border.all()),
               child: TextFormField(
+                controller: registerState.billingValueController,
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                 ),
