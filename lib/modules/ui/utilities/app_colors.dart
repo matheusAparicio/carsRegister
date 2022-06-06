@@ -9,7 +9,7 @@ class AppColors {
 
   Color redColor = const Color.fromARGB(255, 158, 56, 48);
   Color greenColor = const Color.fromARGB(255, 82, 156, 94);
-  Color greyColor = const Color.fromARGB(255, 192, 192, 192);
+  Color greyColor = const Color.fromARGB(255, 150, 150, 150);
 
   Color shadowColor = const Color.fromARGB(117, 46, 46, 46);
 

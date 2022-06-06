@@ -1,5 +1,6 @@
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class SearchAndAddBar extends StatefulWidget {
@@ -38,8 +39,10 @@ class _SearchAndAddBarState extends State<SearchAndAddBar> {
                     textAlign: TextAlign.center,
                     textAlignVertical: TextAlignVertical.center,
                     cursorColor: AppColors().secondaryTextColor,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       border: InputBorder.none,
+                      hintText: "Pesquisar",
+                      hintStyle: AppTextStyles().mainTextStyle(color: AppColors().greyColor),
                     ),
                     onChanged: (value) {
                       queryState.searchCarList(searchString: value);
