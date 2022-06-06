@@ -1,4 +1,3 @@
-import 'package:carsregister/modules/ui/utilities/app_formats.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
@@ -6,7 +5,7 @@ class NumericTextFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
       TextEditingValue oldValue, TextEditingValue newValue) {
-    final currencySymbol = 'R\$';
+    const currencySymbol = 'R\$';
     if (newValue.text.isEmpty || newValue.text.trim() == currencySymbol) {
       return newValue.copyWith(text: '');
     } else if (newValue.text.compareTo(oldValue.text) != 0) {

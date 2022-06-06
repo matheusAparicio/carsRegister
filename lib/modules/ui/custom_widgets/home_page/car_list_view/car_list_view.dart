@@ -1,5 +1,4 @@
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
-import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/car_list_view/components/car_list_view_options.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:carsregister/modules/ui/utilities/app_formats.dart';

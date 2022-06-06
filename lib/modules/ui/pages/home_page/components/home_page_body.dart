@@ -1,5 +1,3 @@
-import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
-import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/car_list_view/car_list_view.dart';
 import 'package:flutter/material.dart';
 

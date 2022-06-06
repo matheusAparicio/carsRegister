@@ -35,12 +35,12 @@ class CarsDatabase {
       "isGasCharged": isGasCharged,
     };
     Database _db =
-        await initDB(); //TODO deixar singleton para reaproveitar o db como variavel da classe
+        await initDB();
     await _db.insert('cars', jsonData,
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  Future updateCar({ //TODO implementar update
+  Future updateCar({
     required carId,
     required carBrandCode,
     required carBrandName,
@@ -66,7 +66,7 @@ class CarsDatabase {
       "isGasCharged": isGasCharged,
     };
     Database _db =
-        await initDB(); //TODO deixar singleton para reaproveitar o db como variavel da classe
+        await initDB();
     await _db.update('cars', jsonData, where: "carId = $carId",
         conflictAlgorithm: ConflictAlgorithm.replace);
   }

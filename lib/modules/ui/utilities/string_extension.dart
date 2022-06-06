@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this
+
 extension StringExtension on String {
 
   String firstWord() {

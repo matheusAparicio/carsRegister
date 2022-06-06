@@ -1,12 +1,9 @@
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
-import 'package:carsregister/modules/ui/utilities/app_formats.dart';
 import 'package:carsregister/modules/ui/utilities/currency_text_formatter.dart';
-import 'package:carsregister/modules/ui/utilities/string_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 
 class AddCarDialogPayment extends StatefulWidget {
   const AddCarDialogPayment({Key? key}) : super(key: key);
