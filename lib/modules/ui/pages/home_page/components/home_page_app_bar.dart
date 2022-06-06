@@ -1,5 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:carsregister/modules/ui/custom_widgets/general/compact_button.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/add_car_dialog.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -64,26 +67,21 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
                     ),
                   ],
                 ),
-                MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: GestureDetector(
-                    onTap: () {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const AddCarDialog(purpose: "insert",);
-                          });
-                    },
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * .15,
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 30
-                      ),
-                    ),
-                  ),
-                ),
+                CompactButton(
+                  width: MediaQuery.of(context).size.width * .15,
+                  height: widget.appBarHeight * .7,
+                  buttonName: "Carro",
+                  buttonIcon: Icons.add,
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return const AddCarDialog(
+                            purpose: "insert",
+                          );
+                        });
+                  },
+                )
               ]),
         ],
       ),
