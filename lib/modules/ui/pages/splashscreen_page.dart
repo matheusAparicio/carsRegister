@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:carsregister/modules/database/cars_database.dart';
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
-import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
 import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +56,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
         Text(
           "Mobicar, aluguel de carros inteligente.",
           style: GoogleFonts.roboto(
-            color: settingsState.primaryTextColor,
+            color: preferencesState.primaryTextColor,
             decoration: TextDecoration.none,
             fontSize: 22,
             fontWeight: FontWeight.w400,

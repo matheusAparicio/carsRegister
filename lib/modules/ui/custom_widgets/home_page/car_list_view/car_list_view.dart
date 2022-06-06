@@ -1,5 +1,5 @@
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
-import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/car_list_view/components/car_list_view_options.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_formats.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
@@ -85,13 +85,13 @@ class _CarListViewState extends State<CarListView> {
                                 Text(
                                   "Valor FIPE: ${queryState.carListDisplay[index]["carFipe"]}",
                                   style: GoogleFonts.roboto(
-                                    color: settingsState.secondaryTextColor,
+                                    color: preferencesState.secondaryTextColor,
                                   ),
                                 ),
                                 Text(
                                   "Aluguel: ${AppTextFormats().currencyFormat.format(queryState.carListDisplay[index]["billingValue"])}/${queryState.carListDisplay[index]["billingMethod"].substring(4)} ${queryState.carListDisplay[index]["isGasCharged"].toString().turnBoolToMessage(message: "+ Combustível")}",
                                   style: GoogleFonts.roboto(
-                                    color: settingsState.secondaryTextColor,
+                                    color: preferencesState.secondaryTextColor,
                                   ),
                                 ),
                               ]),

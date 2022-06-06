@@ -1,6 +1,6 @@
 import 'package:carsregister/modules/database/cars_database.dart';
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
-import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/main_button.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/components/add_car_dialog_info.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/components/add_car_dialog_payment.dart';
@@ -36,7 +36,7 @@ class _AddCarDialogState extends State<AddCarDialog> {
           height: MediaQuery.of(context).size.height * .6,
           margin: MediaQuery.of(context).viewInsets,
           decoration: BoxDecoration(
-              color: settingsState.secondaryColor,
+              color: preferencesState.secondaryColor,
               borderRadius: BorderRadius.circular(25),
               boxShadow: [
                 BoxShadow(
@@ -54,7 +54,7 @@ class _AddCarDialogState extends State<AddCarDialog> {
                 width: MediaQuery.of(context).size.width * widthMultiplier,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: settingsState.primaryColor),
+                    color: preferencesState.primaryColor),
                 child: Column(
                   children: [
                     Padding(
@@ -64,7 +64,7 @@ class _AddCarDialogState extends State<AddCarDialog> {
                             ? "Adicionar carro"
                             : "Modificar carro",
                         style: AppTextStyles().mainTextStyle(
-                          color: settingsState.primaryTextColor,
+                          color: preferencesState.primaryTextColor,
                         ),
                       ),
                     ),
@@ -90,22 +90,22 @@ class _AddCarDialogState extends State<AddCarDialog> {
                                     ? const Border(bottom: BorderSide())
                                     : null,
                                 color: firstTabSelected
-                                    ? settingsState.primaryColor
-                                    : settingsState.secondaryColor,
+                                    ? preferencesState.primaryColor
+                                    : preferencesState.secondaryColor,
                               ),
                               child: Text(
                                 "Dados cadastrais",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.roboto(
                                     color: firstTabSelected
-                                        ? settingsState.primaryTextColor
-                                        : settingsState.secondaryTextColor),
+                                        ? preferencesState.primaryTextColor
+                                        : preferencesState.secondaryTextColor),
                               ),
                             ),
                           ),
                           Expanded(
                               child:
-                                  Container(color: settingsState.secondaryColor)),
+                                  Container(color: preferencesState.secondaryColor)),
                           GestureDetector(
                             onTap: () {
                               setState(() {
@@ -121,16 +121,16 @@ class _AddCarDialogState extends State<AddCarDialog> {
                                     ? const Border(bottom: BorderSide())
                                     : null,
                                 color: !firstTabSelected
-                                    ? settingsState.primaryColor
-                                    : settingsState.secondaryColor,
+                                    ? preferencesState.primaryColor
+                                    : preferencesState.secondaryColor,
                               ),
                               child: Text(
                                 "Forma de cobrança",
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.roboto(
                                     color: !firstTabSelected
-                                        ? settingsState.primaryTextColor
-                                        : settingsState.secondaryTextColor),
+                                        ? preferencesState.primaryTextColor
+                                        : preferencesState.secondaryTextColor),
                               ),
                             ),
                           ),

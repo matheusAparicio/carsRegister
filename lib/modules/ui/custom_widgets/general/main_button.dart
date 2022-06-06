@@ -1,4 +1,4 @@
-import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,12 +33,12 @@ class _MainButtonState extends State<MainButton> {
         margin: const EdgeInsets.only(bottom: 15),
         decoration: widget.boxDecoration ??
             BoxDecoration(
-                color: settingsState.primaryColor,
+                color: preferencesState.primaryColor,
                 borderRadius: BorderRadius.circular(25)),
         child: Text(
           widget.buttonName,
           style: GoogleFonts.roboto(
-            color: settingsState.primaryTextColor,
+            color: preferencesState.primaryTextColor,
             fontSize: 16
           ),
         ),

@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,6 +10,7 @@ class DrawerButton extends StatefulWidget {
   final BoxDecoration? buttonDecoration;
   final Color? buttonColor;
   final dynamic onTap;
+  final bool iconOnTop;
   const DrawerButton({
     Key? key,
     required this.buttonIcon,
@@ -17,7 +18,8 @@ class DrawerButton extends StatefulWidget {
     required this.buttonWidth,
     this.buttonDecoration,
     this.buttonColor,
-    this.onTap
+    this.onTap,
+    this.iconOnTop = false,
   }) : super(key: key);
 
   @override
@@ -33,29 +35,43 @@ class _DrawerButtonState extends State<DrawerButton> {
         width: widget.buttonWidth,
         decoration: widget.buttonDecoration,
         alignment: Alignment.centerLeft,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            widget.iconOnTop ? Container(
               width: widget.buttonWidth * .1,
-              margin: EdgeInsets.only(right: widget.buttonWidth * .05),
+              margin: EdgeInsets.only(left: widget.buttonWidth / 30),
               alignment: Alignment.center,
               child: Icon(
                 widget.buttonIcon,
-                color: widget.buttonColor ?? settingsState.secondaryTextColor,
+                color: widget.buttonColor ?? preferencesState.secondaryTextColor,
               ),
-            ),
-            SizedBox(
-              width: widget.buttonWidth * .85,
-              child: AutoSizeText(
-                widget.buttonName,
-                maxLines: 2,
-                minFontSize: 10,
-                maxFontSize: 20,
-                style: GoogleFonts.roboto(
-                  color: widget.buttonColor ?? settingsState.secondaryTextColor,
+            ) : const SizedBox(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                !widget.iconOnTop ? Container(
+                  width: widget.buttonWidth * .1,
+                  margin: EdgeInsets.only(right: widget.buttonWidth * .05),
+                  alignment: Alignment.center,
+                  child: Icon(
+                    widget.buttonIcon,
+                    color: widget.buttonColor ?? preferencesState.secondaryTextColor,
+                  ),
+                ) : SizedBox(width: widget.buttonWidth / 30),
+                SizedBox(
+                  width: widget.buttonWidth * .85,
+                  child: AutoSizeText(
+                    widget.buttonName,
+                    maxLines: 2,
+                    minFontSize: 10,
+                    maxFontSize: 20,
+                    style: GoogleFonts.roboto(
+                      color: widget.buttonColor ?? preferencesState.secondaryTextColor,
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),

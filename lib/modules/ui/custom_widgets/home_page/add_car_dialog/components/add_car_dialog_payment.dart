@@ -1,5 +1,6 @@
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
-import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
+import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:carsregister/modules/ui/utilities/currency_text_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,16 +25,21 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
             Text(
               "Forma de cobrança:",
               style: GoogleFonts.roboto(
-                color: settingsState.secondaryTextColor,
+                color: preferencesState.secondaryTextColor,
               ),
             ),
             DropdownButton(
+                dropdownColor: preferencesState.secondaryColor,
                 value: registerState.dropdownBillingMethod,
                 items:
                     registerState.dropdownBillingFormItems.map((String item) {
                   return DropdownMenuItem(
                     value: item,
-                    child: Text(item),
+                    child: Text(
+                      item,
+                      style: AppTextStyles().mainTextStyle(
+                          color: preferencesState.secondaryTextColor),
+                    ),
                   );
                 }).toList(),
                 onChanged: (String? newValue) {
@@ -49,19 +55,19 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
             Text(
               "Valor ${registerState.dropdownBillingMethod.toLowerCase()}:",
               style: GoogleFonts.roboto(
-                color: settingsState.secondaryTextColor,
+                color: preferencesState.secondaryTextColor,
               ),
             ),
             Container(
               width: MediaQuery.of(context).size.width * .3,
               height: 40,
-              decoration: BoxDecoration(border: Border.all()),
+              decoration: BoxDecoration(border: Border.all(color: preferencesState.secondaryTextColor)),
               padding: const EdgeInsets.only(bottom: 5),
               child: TextFormField(
                 controller: registerState.billingValueController,
                 textAlign: TextAlign.center,
                 textAlignVertical: TextAlignVertical.center,
-                cursorColor: settingsState.secondaryTextColor,
+                cursorColor: preferencesState.secondaryTextColor,
                 inputFormatters: [
                   FilteringTextInputFormatter.deny(RegExp(" ")),
                   NumericTextFormatter()
@@ -71,6 +77,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                 ),
+                style: AppTextStyles().mainTextStyle(color: preferencesState.secondaryTextColor)
               ),
             ),
           ],
@@ -80,7 +87,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
             Text(
               "A gasolina é cobrada?",
               style: GoogleFonts.roboto(
-                color: settingsState.secondaryTextColor,
+                color: preferencesState.secondaryTextColor,
               ),
             ),
             Switch(
@@ -90,6 +97,8 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
                   registerState.isGasCharged = value;
                 });
               },
+              activeColor: preferencesState.primaryColor,
+              trackColor: MaterialStateProperty.all(preferencesState.secondaryTextColor),
             ),
           ],
         ),

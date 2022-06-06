@@ -1,4 +1,4 @@
-import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +27,7 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
           width: MediaQuery.of(context).size.width * .6,
           height: MediaQuery.of(context).size.height * .2,
           decoration: BoxDecoration(
-            color: settingsState.secondaryColor,
+            color: preferencesState.secondaryColor,
           ),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -50,13 +50,13 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
                           height: MediaQuery.of(context).size.height * .05,
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
-                            color: settingsState.primaryColor,
+                            color: preferencesState.primaryColor,
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Text(
                             "Confirmar",
                             style: AppTextStyles().mainTextStyle(
-                                color: settingsState.primaryTextColor),
+                                color: preferencesState.primaryTextColor),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -76,7 +76,7 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
                           child: Text(
                             "Cancelar",
                             style: AppTextStyles().mainTextStyle(
-                                color: settingsState.primaryTextColor),
+                                color: preferencesState.primaryTextColor),
                             textAlign: TextAlign.center,
                           ),
                         ),

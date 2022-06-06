@@ -1,9 +1,10 @@
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
-import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
 import 'package:carsregister/modules/domain/model/car_brand_entity.dart';
 import 'package:carsregister/modules/domain/model/car_model_entity.dart';
 import 'package:carsregister/modules/domain/model/car_year_entity.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/dropdown_text.dart';
+import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,10 +29,13 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 "Fabricante:",
                 style: GoogleFonts.roboto(
-                  color: settingsState.secondaryTextColor,
+                  color: preferencesState.secondaryTextColor,
                 ),
               ),
               DropdownButton(
+                dropdownColor: preferencesState.secondaryColor,
+                iconEnabledColor: preferencesState.secondaryTextColor,
+                iconDisabledColor: AppColors().greyColor,
                   value: registerState.dropdownBrandValue[0],
                   items: registerState.dropdownBrandItems
                       .map((CarBrandEntity item) {
@@ -44,7 +48,6 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
                   }).toList(),
                   onChanged: (String? newValue) {
                     registerState.dropdownBrandValue[0] = newValue!;
-
                     registerState.getCarModels(brandCode: newValue);
                   }),
             ],
@@ -55,12 +58,13 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 "Modelo:",
                 style: GoogleFonts.roboto(
-                  color: settingsState.secondaryTextColor,
+                  color: preferencesState.secondaryTextColor,
                 ),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .5,
                 child: DropdownButton(
+                  dropdownColor: preferencesState.secondaryColor,
                     value: registerState.dropdownModelValue[0],
                     items: registerState.dropdownModelItems
                         .map((CarModelEntity item) {
@@ -90,10 +94,11 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 "Ano:",
                 style: GoogleFonts.roboto(
-                  color: settingsState.secondaryTextColor,
+                  color: preferencesState.secondaryTextColor,
                 ),
               ),
               DropdownButton(
+                dropdownColor: preferencesState.secondaryColor,
                   value: registerState.dropdownYearValue[0],
                   items:
                       registerState.dropdownYearItems.map((CarYearEntity item) {
@@ -121,7 +126,7 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 "Valor FIPE:",
                 style: GoogleFonts.roboto(
-                  color: settingsState.secondaryTextColor,
+                  color: preferencesState.secondaryTextColor,
                 ),
               ),
               const SizedBox(
@@ -130,7 +135,7 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 registerState.carFipeValue,
                 style: GoogleFonts.roboto(
-                  color: settingsState.secondaryTextColor,
+                  color: preferencesState.secondaryTextColor,
                 ),
               ),
             ],

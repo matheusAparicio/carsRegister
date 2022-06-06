@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'settings_state.dart';
+part of 'preferences_state.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,9 +8,25 @@ part of 'settings_state.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
-mixin _$SettingsState on _SettingsStateBase, Store {
+mixin _$PreferencesState on _PreferencesStateBase, Store {
+  late final _$darkModeAtom =
+      Atom(name: '_PreferencesStateBase.darkMode', context: context);
+
+  @override
+  bool get darkMode {
+    _$darkModeAtom.reportRead();
+    return super.darkMode;
+  }
+
+  @override
+  set darkMode(bool value) {
+    _$darkModeAtom.reportWrite(value, super.darkMode, () {
+      super.darkMode = value;
+    });
+  }
+
   late final _$primaryColorAtom =
-      Atom(name: '_SettingsStateBase.primaryColor', context: context);
+      Atom(name: '_PreferencesStateBase.primaryColor', context: context);
 
   @override
   Color get primaryColor {
@@ -26,7 +42,7 @@ mixin _$SettingsState on _SettingsStateBase, Store {
   }
 
   late final _$primaryTextColorAtom =
-      Atom(name: '_SettingsStateBase.primaryTextColor', context: context);
+      Atom(name: '_PreferencesStateBase.primaryTextColor', context: context);
 
   @override
   Color get primaryTextColor {
@@ -42,7 +58,7 @@ mixin _$SettingsState on _SettingsStateBase, Store {
   }
 
   late final _$secondaryColorAtom =
-      Atom(name: '_SettingsStateBase.secondaryColor', context: context);
+      Atom(name: '_PreferencesStateBase.secondaryColor', context: context);
 
   @override
   Color get secondaryColor {
@@ -58,7 +74,7 @@ mixin _$SettingsState on _SettingsStateBase, Store {
   }
 
   late final _$secondaryTextColorAtom =
-      Atom(name: '_SettingsStateBase.secondaryTextColor', context: context);
+      Atom(name: '_PreferencesStateBase.secondaryTextColor', context: context);
 
   @override
   Color get secondaryTextColor {
@@ -73,9 +89,24 @@ mixin _$SettingsState on _SettingsStateBase, Store {
     });
   }
 
+  late final _$_PreferencesStateBaseActionController =
+      ActionController(name: '_PreferencesStateBase', context: context);
+
+  @override
+  void toggleLightMode() {
+    final _$actionInfo = _$_PreferencesStateBaseActionController.startAction(
+        name: '_PreferencesStateBase.toggleLightMode');
+    try {
+      return super.toggleLightMode();
+    } finally {
+      _$_PreferencesStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
+darkMode: ${darkMode},
 primaryColor: ${primaryColor},
 primaryTextColor: ${primaryTextColor},
 secondaryColor: ${secondaryColor},

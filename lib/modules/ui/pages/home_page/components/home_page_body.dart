@@ -1,5 +1,5 @@
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
-import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/compact_button.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/car_list_view/car_list_view.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/search_and_add_bar.dart';
@@ -22,7 +22,7 @@ class _HomePageBodyState extends State<HomePageBody> {
       return Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: settingsState.secondaryColor,
+        color: preferencesState.secondaryColor,
         child: Stack(
           children: [
             Column(
@@ -44,16 +44,18 @@ class _HomePageBodyState extends State<HomePageBody> {
                       children: [
                         Text(
                           "Nenhum carro cadastrado.\nQue tal cadastrar um novo no botão indicado?",
-                          style: AppTextStyles().mainTextStyle(fontSize: 20),
+                          style: AppTextStyles().mainTextStyle(
+                            fontSize: 20,
+                            color: preferencesState.secondaryTextColor,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                         CompactButton(
-                          width: MediaQuery.of(context).size.width * .15,
-                          height: MediaQuery.of(context).size.height * .1,
-                          buttonName: "Carro",
-                          buttonIcon: Icons.add,
-                          color: AppColors().greyColor
-                        )
+                            width: MediaQuery.of(context).size.width * .15,
+                            height: MediaQuery.of(context).size.height * .1,
+                            buttonName: "Carro",
+                            buttonIcon: Icons.add,
+                            color: AppColors().greyColor)
                       ],
                     ),
                   ),
