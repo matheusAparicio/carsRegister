@@ -146,7 +146,6 @@ abstract class _RegisterStateBase with Store {
 
     dropdownBillingMethod = billingMethod;
     billingValueController.text = billingValue.toString().doubleToCurrency();
-
-    isGasCharged = isGasCharged == 1 ? true : false;
+    this.isGasCharged = isGasCharged == 1 ? true : false;
   }
 }

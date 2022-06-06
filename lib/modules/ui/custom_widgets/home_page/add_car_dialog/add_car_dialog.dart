@@ -147,9 +147,9 @@ class _AddCarDialogState extends State<AddCarDialog> {
               ),
               MainButton(
                 buttonName: "Confirmar",
-                onPressed: () {
+                onPressed: () async {
                   if (widget.purpose == "insert") {
-                    CarsDatabase().insertCar(
+                    await CarsDatabase().insertCar(
                         carBrandCode: registerState.dropdownBrandValue[0],
                         carBrandName: registerState.dropdownBrandValue[1],
                         carModelCode: registerState.dropdownModelValue[0],
@@ -164,7 +164,7 @@ class _AddCarDialogState extends State<AddCarDialog> {
                             .currencyToDouble()),
                         isGasCharged: registerState.isGasCharged ? 1 : 0);
                   } else {
-                    CarsDatabase().updateCar(
+                    await CarsDatabase().updateCar(
                         carId: widget.carId,
                         carBrandCode: registerState.dropdownBrandValue[0],
                         carBrandName: registerState.dropdownBrandValue[1],
