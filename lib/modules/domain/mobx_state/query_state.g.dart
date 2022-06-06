@@ -25,6 +25,22 @@ mixin _$QueryState on _QueryStateBase, Store {
     });
   }
 
+  late final _$carListDisplayAtom =
+      Atom(name: '_QueryStateBase.carListDisplay', context: context);
+
+  @override
+  List<dynamic> get carListDisplay {
+    _$carListDisplayAtom.reportRead();
+    return super.carListDisplay;
+  }
+
+  @override
+  set carListDisplay(List<dynamic> value) {
+    _$carListDisplayAtom.reportWrite(value, super.carListDisplay, () {
+      super.carListDisplay = value;
+    });
+  }
+
   late final _$showOptionAtom =
       Atom(name: '_QueryStateBase.showOption', context: context);
 
@@ -41,6 +57,38 @@ mixin _$QueryState on _QueryStateBase, Store {
     });
   }
 
+  late final _$showSearchAndAddAtom =
+      Atom(name: '_QueryStateBase.showSearchAndAdd', context: context);
+
+  @override
+  bool get showSearchAndAdd {
+    _$showSearchAndAddAtom.reportRead();
+    return super.showSearchAndAdd;
+  }
+
+  @override
+  set showSearchAndAdd(bool value) {
+    _$showSearchAndAddAtom.reportWrite(value, super.showSearchAndAdd, () {
+      super.showSearchAndAdd = value;
+    });
+  }
+
+  late final _$searchBarControllerAtom =
+      Atom(name: '_QueryStateBase.searchBarController', context: context);
+
+  @override
+  TextEditingController get searchBarController {
+    _$searchBarControllerAtom.reportRead();
+    return super.searchBarController;
+  }
+
+  @override
+  set searchBarController(TextEditingController value) {
+    _$searchBarControllerAtom.reportWrite(value, super.searchBarController, () {
+      super.searchBarController = value;
+    });
+  }
+
   late final _$updateCarListAsyncAction =
       AsyncAction('_QueryStateBase.updateCarList', context: context);
 
@@ -49,11 +97,28 @@ mixin _$QueryState on _QueryStateBase, Store {
     return _$updateCarListAsyncAction.run(() => super.updateCarList());
   }
 
+  late final _$_QueryStateBaseActionController =
+      ActionController(name: '_QueryStateBase', context: context);
+
+  @override
+  void searchCarList({required String searchString}) {
+    final _$actionInfo = _$_QueryStateBaseActionController.startAction(
+        name: '_QueryStateBase.searchCarList');
+    try {
+      return super.searchCarList(searchString: searchString);
+    } finally {
+      _$_QueryStateBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
 carList: ${carList},
-showOption: ${showOption}
+carListDisplay: ${carListDisplay},
+showOption: ${showOption},
+showSearchAndAdd: ${showSearchAndAdd},
+searchBarController: ${searchBarController}
     ''';
   }
 }

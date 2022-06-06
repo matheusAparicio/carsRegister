@@ -21,7 +21,7 @@ class _CarListViewState extends State<CarListView> {
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
       return ListView.builder(
-          itemCount: queryState.carList.length,
+          itemCount: queryState.carListDisplay.length,
           physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             return GestureDetector(
@@ -59,19 +59,19 @@ class _CarListViewState extends State<CarListView> {
                                   TextSpan(
                                     children: <TextSpan>[
                                       TextSpan(
-                                        text: queryState.carList[index]
+                                        text: queryState.carListDisplay[index]
                                                 ["carBrandName"] +
                                             " ",
                                       ),
                                       TextSpan(
-                                          text: queryState.carList[index]
+                                          text: queryState.carListDisplay[index]
                                                   ["carModelName"] +
                                               " ",
                                           style: AppTextStyles().mainTextStyle(
                                               fontWeight: FontWeight.w500,
                                               fontSize: 14)),
                                       TextSpan(
-                                        text: queryState.carList[index]
+                                        text: queryState.carListDisplay[index]
                                                 ["carYearName"]
                                             .toString()
                                             .firstWord(),
@@ -83,13 +83,13 @@ class _CarListViewState extends State<CarListView> {
                                   textAlign: TextAlign.left,
                                 ),
                                 Text(
-                                  "Valor FIPE: ${queryState.carList[index]["carFipe"]}",
+                                  "Valor FIPE: ${queryState.carListDisplay[index]["carFipe"]}",
                                   style: GoogleFonts.roboto(
                                     color: AppColors().secondaryTextColor,
                                   ),
                                 ),
                                 Text(
-                                  "Aluguel: ${AppFormats().currencyFormat.format(queryState.carList[index]["billingValue"])}/${queryState.carList[index]["billingMethod"].substring(4)} ${queryState.carList[index]["isGasCharged"].toString().turnBoolToMessage(message: "+ Combustível")}",
+                                  "Aluguel: ${AppFormats().currencyFormat.format(queryState.carListDisplay[index]["billingValue"])}/${queryState.carListDisplay[index]["billingMethod"].substring(4)} ${queryState.carListDisplay[index]["isGasCharged"].toString().turnBoolToMessage(message: "+ Combustível")}",
                                   style: GoogleFonts.roboto(
                                     color: AppColors().secondaryTextColor,
                                   ),

@@ -227,6 +227,34 @@ mixin _$RegisterState on _RegisterStateBase, Store {
         brandCode: brandCode, modelCode: modelCode, yearCode: yearCode));
   }
 
+  late final _$loadCarValuesAsyncAction =
+      AsyncAction('_RegisterStateBase.loadCarValues', context: context);
+
+  @override
+  Future loadCarValues(
+      {required String carBrandCode,
+      required String carBrandName,
+      required String carModelCode,
+      required String carModelName,
+      required String carYearCode,
+      required String carYearName,
+      required String carFipe,
+      required String billingMethod,
+      required dynamic billingValue,
+      required dynamic isGasCharged}) {
+    return _$loadCarValuesAsyncAction.run(() => super.loadCarValues(
+        carBrandCode: carBrandCode,
+        carBrandName: carBrandName,
+        carModelCode: carModelCode,
+        carModelName: carModelName,
+        carYearCode: carYearCode,
+        carYearName: carYearName,
+        carFipe: carFipe,
+        billingMethod: billingMethod,
+        billingValue: billingValue,
+        isGasCharged: isGasCharged));
+  }
+
   late final _$_RegisterStateBaseActionController =
       ActionController(name: '_RegisterStateBase', context: context);
 
