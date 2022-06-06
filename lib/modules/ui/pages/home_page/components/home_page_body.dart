@@ -31,11 +31,13 @@ class _HomePageBodyState extends State<HomePageBody> {
             ),
             queryState.carList.isNotEmpty
                 ? const SizedBox()
-                : Text(
-                    "Nenhum carro cadastrado.",
-                    style: AppTextStyles().mainTextStyle(fontSize: 20),
-                    textAlign: TextAlign.center,
-                  ),
+                : Center(
+                  child: Text(
+                      "Nenhum carro cadastrado.",
+                      style: AppTextStyles().mainTextStyle(fontSize: 20),
+                      textAlign: TextAlign.center,
+                    ),
+                ),
           ],
         ),
       );

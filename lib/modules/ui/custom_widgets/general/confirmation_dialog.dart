@@ -60,19 +60,24 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
                           ),
                         ),
                       ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * .22,
-                        height: MediaQuery.of(context).size.height * .05,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: AppColors().redColor,
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Text(
-                          "Cancelar",
-                          style: AppTextStyles().mainTextStyle(
-                              color: AppColors().primaryTextColor),
-                          textAlign: TextAlign.center,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop((context));
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * .22,
+                          height: MediaQuery.of(context).size.height * .05,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: AppColors().redColor,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Text(
+                            "Cancelar",
+                            style: AppTextStyles().mainTextStyle(
+                                color: AppColors().primaryTextColor),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                     ]),
