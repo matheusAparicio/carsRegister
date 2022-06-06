@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carsregister/modules/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -42,7 +42,7 @@ class _DrawerButtonState extends State<DrawerButton> {
               alignment: Alignment.center,
               child: Icon(
                 widget.buttonIcon,
-                color: widget.buttonColor ?? AppColors().secondaryTextColor,
+                color: widget.buttonColor ?? settingsState.secondaryTextColor,
               ),
             ),
             SizedBox(
@@ -53,7 +53,7 @@ class _DrawerButtonState extends State<DrawerButton> {
                 minFontSize: 10,
                 maxFontSize: 20,
                 style: GoogleFonts.roboto(
-                  color: widget.buttonColor ?? AppColors().secondaryTextColor,
+                  color: widget.buttonColor ?? settingsState.secondaryTextColor,
                 ),
               ),
             ),

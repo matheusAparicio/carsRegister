@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/drawer_button.dart';
 import 'package:carsregister/modules/ui/pages/about_page/about_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
@@ -19,7 +20,7 @@ class _HomePageDrawerState extends State<HomePageDrawer> {
       height: MediaQuery.of(context).size.height * .8,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: AppColors().secondaryColor,
+        color: settingsState.secondaryColor,
         borderRadius: const BorderRadius.only(
           topRight: Radius.circular(25),
           bottomRight: Radius.circular(25),

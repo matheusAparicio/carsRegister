@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:carsregister/modules/database/cars_database.dart';
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -48,14 +49,14 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: AppColors().splashScreenColor),
+      decoration: BoxDecoration(color: AppColors().voidColor),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Lottie.asset("lib/assets/lottie/splashcreen_animation.json",
             repeat: false),
         Text(
           "Mobicar, aluguel de carros inteligente.",
           style: GoogleFonts.roboto(
-            color: AppColors().primaryTextColor,
+            color: settingsState.primaryTextColor,
             decoration: TextDecoration.none,
             fontSize: 22,
             fontWeight: FontWeight.w400,

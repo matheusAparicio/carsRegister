@@ -1,5 +1,5 @@
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
-import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +18,7 @@ class _AboutPageAppBarState extends State<AboutPageAppBar> {
       width: MediaQuery.of(context).size.width,
       height: widget.appBarHeight,
       decoration: BoxDecoration(
-        color: AppColors().primaryColor,
+        color: settingsState.primaryColor,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

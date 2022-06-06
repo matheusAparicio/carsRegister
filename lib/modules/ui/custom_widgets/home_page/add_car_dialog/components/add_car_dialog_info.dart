@@ -1,9 +1,9 @@
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:carsregister/modules/domain/model/car_brand_entity.dart';
 import 'package:carsregister/modules/domain/model/car_model_entity.dart';
 import 'package:carsregister/modules/domain/model/car_year_entity.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/dropdown_text.dart';
-import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,7 +28,7 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 "Fabricante:",
                 style: GoogleFonts.roboto(
-                  color: AppColors().secondaryTextColor,
+                  color: settingsState.secondaryTextColor,
                 ),
               ),
               DropdownButton(
@@ -55,7 +55,7 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 "Modelo:",
                 style: GoogleFonts.roboto(
-                  color: AppColors().secondaryTextColor,
+                  color: settingsState.secondaryTextColor,
                 ),
               ),
               SizedBox(
@@ -90,7 +90,7 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 "Ano:",
                 style: GoogleFonts.roboto(
-                  color: AppColors().secondaryTextColor,
+                  color: settingsState.secondaryTextColor,
                 ),
               ),
               DropdownButton(
@@ -121,7 +121,7 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 "Valor FIPE:",
                 style: GoogleFonts.roboto(
-                  color: AppColors().secondaryTextColor,
+                  color: settingsState.secondaryTextColor,
                 ),
               ),
               const SizedBox(
@@ -130,7 +130,7 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               Text(
                 registerState.carFipeValue,
                 style: GoogleFonts.roboto(
-                  color: AppColors().secondaryTextColor,
+                  color: settingsState.secondaryTextColor,
                 ),
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/compact_button.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/car_list_view/car_list_view.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/search_and_add_bar.dart';
@@ -21,7 +22,7 @@ class _HomePageBodyState extends State<HomePageBody> {
       return Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: AppColors().secondaryColor,
+        color: settingsState.secondaryColor,
         child: Stack(
           children: [
             Column(

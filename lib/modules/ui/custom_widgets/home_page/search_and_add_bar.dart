@@ -1,4 +1,5 @@
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class _SearchAndAddBarState extends State<SearchAndAddBar> {
                     controller: queryState.searchBarController,
                     textAlign: TextAlign.center,
                     textAlignVertical: TextAlignVertical.center,
-                    cursorColor: AppColors().secondaryTextColor,
+                    cursorColor: settingsState.secondaryTextColor,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: "Pesquisar",

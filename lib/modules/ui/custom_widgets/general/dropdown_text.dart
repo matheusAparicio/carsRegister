@@ -1,5 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carsregister/modules/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +18,7 @@ class _DropdownTextState extends State<DropdownText> {
       child: AutoSizeText(
         widget.name,
         style: GoogleFonts.roboto(
-          color: AppColors().secondaryTextColor,
+          color: settingsState.secondaryTextColor,
         ),
         minFontSize: 6,
         maxLines: 3,

@@ -1,5 +1,5 @@
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
-import 'package:carsregister/modules/ui/utilities/app_colors.dart';
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:carsregister/modules/ui/utilities/currency_text_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,7 +24,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
             Text(
               "Forma de cobrança:",
               style: GoogleFonts.roboto(
-                color: AppColors().secondaryTextColor,
+                color: settingsState.secondaryTextColor,
               ),
             ),
             DropdownButton(
@@ -49,7 +49,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
             Text(
               "Valor ${registerState.dropdownBillingMethod.toLowerCase()}:",
               style: GoogleFonts.roboto(
-                color: AppColors().secondaryTextColor,
+                color: settingsState.secondaryTextColor,
               ),
             ),
             Container(
@@ -61,7 +61,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
                 controller: registerState.billingValueController,
                 textAlign: TextAlign.center,
                 textAlignVertical: TextAlignVertical.center,
-                cursorColor: AppColors().secondaryTextColor,
+                cursorColor: settingsState.secondaryTextColor,
                 inputFormatters: [
                   FilteringTextInputFormatter.deny(RegExp(" ")),
                   NumericTextFormatter()
@@ -80,7 +80,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
             Text(
               "A gasolina é cobrada?",
               style: GoogleFonts.roboto(
-                color: AppColors().secondaryTextColor,
+                color: settingsState.secondaryTextColor,
               ),
             ),
             Switch(

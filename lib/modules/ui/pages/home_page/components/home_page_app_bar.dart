@@ -1,6 +1,6 @@
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/compact_button.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/add_car_dialog.dart';
-import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,7 +20,7 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
       width: MediaQuery.of(context).size.width,
       height: widget.appBarHeight,
       decoration: BoxDecoration(
-        color: AppColors().primaryColor,
+        color: settingsState.primaryColor,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

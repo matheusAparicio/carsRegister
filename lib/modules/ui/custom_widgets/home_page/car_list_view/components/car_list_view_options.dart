@@ -1,6 +1,7 @@
 import 'package:carsregister/modules/database/cars_database.dart';
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
+import 'package:carsregister/modules/domain/mobx_state/settings_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/confirmation_dialog.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/add_car_dialog.dart';
 import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
@@ -57,7 +58,7 @@ class _CarListViewOptionsState extends State<CarListViewOptions> {
           width: MediaQuery.of(context).size.width * .7,
           height: 40,
           decoration: BoxDecoration(
-            color: AppColors().primaryColor,
+            color: settingsState.primaryColor,
             borderRadius: BorderRadius.circular(15),
           ),
           child: Row(
@@ -66,11 +67,11 @@ class _CarListViewOptionsState extends State<CarListViewOptions> {
               SizedBox(width: MediaQuery.of(context).size.width * .05),
               Text("Editar",
                   style: AppTextStyles()
-                      .mainTextStyle(color: AppColors().primaryTextColor)),
+                      .mainTextStyle(color: settingsState.primaryTextColor)),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .05,
                 child:
-                    Icon(Icons.settings, color: AppColors().primaryTextColor),
+                    Icon(Icons.settings, color: settingsState.primaryTextColor),
               ),
             ],
           ),
@@ -111,10 +112,10 @@ class _CarListViewOptionsState extends State<CarListViewOptions> {
               SizedBox(width: MediaQuery.of(context).size.width * .05),
               Text("Remover",
                   style: AppTextStyles()
-                      .mainTextStyle(color: AppColors().primaryTextColor)),
+                      .mainTextStyle(color: settingsState.primaryTextColor)),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .05,
-                child: Icon(Icons.delete, color: AppColors().primaryTextColor),
+                child: Icon(Icons.delete, color: settingsState.primaryTextColor),
               ),
             ],
           ),
