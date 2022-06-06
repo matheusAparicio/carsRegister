@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:carsregister/modules/database/cars_database.dart';
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
@@ -6,6 +8,7 @@ import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SplashscreenPage extends StatefulWidget {
   const SplashscreenPage({Key? key}) : super(key: key);
@@ -15,8 +18,18 @@ class SplashscreenPage extends StatefulWidget {
 }
 
 class _SplashscreenPageState extends State<SplashscreenPage> {
+  Future _getStoragePermission() async {
+    if (await Permission.storage.request().isGranted) {
+    } else if (await Permission.storage.request().isPermanentlyDenied) {
+      await openAppSettings();
+    } else if (await Permission.storage.request().isDenied) {
+      exit(0);
+    }
+  }
+
   @override
   void initState() {
+    _getStoragePermission();
     CarsDatabase().initDB();
     registerState.resetValues();
     queryState.updateCarList();
@@ -31,6 +44,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
 
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
