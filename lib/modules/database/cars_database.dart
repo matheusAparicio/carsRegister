@@ -34,8 +34,7 @@ class CarsDatabase {
       "billingValue": billingValue,
       "isGasCharged": isGasCharged,
     };
-    Database _db =
-        await initDB();
+    Database _db = await initDB();
     await _db.insert('cars', jsonData,
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
@@ -65,10 +64,14 @@ class CarsDatabase {
       "billingValue": billingValue,
       "isGasCharged": isGasCharged,
     };
-    Database _db =
-        await initDB();
-    await _db.update('cars', jsonData, where: "carId = $carId",
-        conflictAlgorithm: ConflictAlgorithm.replace);
+    Database _db = await initDB();
+    await _db.update('cars', jsonData,
+        where: "carId = $carId", conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
+  Future deleteCar({required int carId}) async {
+    Database _db = await initDB();
+    _db.delete("cars", where: "carId = $carId");
   }
 
   Future selectCar({String select = "*", String where = ""}) async {

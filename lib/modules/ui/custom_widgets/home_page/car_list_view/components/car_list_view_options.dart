@@ -1,5 +1,7 @@
+import 'package:carsregister/modules/database/cars_database.dart';
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
+import 'package:carsregister/modules/ui/custom_widgets/general/confirmation_dialog.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/add_car_dialog.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
@@ -7,9 +9,7 @@ import 'package:flutter/material.dart';
 
 class CarListViewOptions extends StatefulWidget {
   final int carListIndex;
-  final int carDbId;
-  const CarListViewOptions(
-      {Key? key, required this.carListIndex, required this.carDbId})
+  const CarListViewOptions({Key? key, required this.carListIndex})
       : super(key: key);
 
   @override
@@ -76,25 +76,42 @@ class _CarListViewOptionsState extends State<CarListViewOptions> {
         ),
       ),
       const SizedBox(height: 5),
-      Container(
-        width: MediaQuery.of(context).size.width * .7,
-        height: 40,
-        decoration: BoxDecoration(
-          color: AppColors().redColor,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            SizedBox(width: MediaQuery.of(context).size.width * .05),
-            Text("Remover",
-                style: AppTextStyles()
-                    .mainTextStyle(color: AppColors().primaryTextColor)),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * .05,
-              child: Icon(Icons.delete, color: AppColors().primaryTextColor),
-            ),
-          ],
+      GestureDetector(
+        onTap: () {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return ConfirmationDialog(
+                  confirmationMessage:
+                      "Você tem certeza que deseja excluir o veículo selecionado?",
+                  confirmationAction: () {
+                    CarsDatabase().deleteCar(
+                        carId: queryState.carList[widget.carListIndex]
+                            ["carId"]);
+                  },
+                );
+              });
+        },
+        child: Container(
+          width: MediaQuery.of(context).size.width * .7,
+          height: 40,
+          decoration: BoxDecoration(
+            color: AppColors().redColor,
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(width: MediaQuery.of(context).size.width * .05),
+              Text("Remover",
+                  style: AppTextStyles()
+                      .mainTextStyle(color: AppColors().primaryTextColor)),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .05,
+                child: Icon(Icons.delete, color: AppColors().primaryTextColor),
+              ),
+            ],
+          ),
         ),
       )
     ]);
