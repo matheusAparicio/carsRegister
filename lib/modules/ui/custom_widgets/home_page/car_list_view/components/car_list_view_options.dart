@@ -3,6 +3,7 @@ import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/confirmation_dialog.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/add_car_dialog.dart';
+import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:flutter/material.dart';
@@ -88,6 +89,11 @@ class _CarListViewOptionsState extends State<CarListViewOptions> {
                     CarsDatabase().deleteCar(
                         carId: queryState.carList[widget.carListIndex]
                             ["carId"]);
+                    queryState.updateCarList();
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    );
                   },
                 );
               });

@@ -89,7 +89,7 @@ class _CarListViewState extends State<CarListView> {
                                   ),
                                 ),
                                 Text(
-                                  "Aluguel: ${AppFormats().currencyFormat.format(queryState.carList[index]["billingValue"])}/${queryState.carList[index]["billingMethod"].substring(4)}",
+                                  "Aluguel: ${AppFormats().currencyFormat.format(queryState.carList[index]["billingValue"])}/${queryState.carList[index]["billingMethod"].substring(4)} ${queryState.carList[index]["isGasCharged"].toString().turnBoolToMessage(message: "+ Combustível")}",
                                   style: GoogleFonts.roboto(
                                     color: AppColors().secondaryTextColor,
                                   ),

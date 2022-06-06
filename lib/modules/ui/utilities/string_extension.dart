@@ -40,6 +40,14 @@ extension StringExtension on String {
     }
     return "R\$ " + convertibleString.join('');
   }
+
+  String turnBoolToMessage({required String message}) {
+    if (this == '1') {
+      return " $message";
+    } else {
+      return "";
+    }
+  }
   
 }
 
