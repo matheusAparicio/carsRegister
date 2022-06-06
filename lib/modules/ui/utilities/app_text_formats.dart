@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-class AppFormats {
+class AppTextFormats {
   var currencyFormat = NumberFormat.currency(
       locale: "pt_BR",
       symbol: "R\$",
