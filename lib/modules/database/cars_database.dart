@@ -40,6 +40,37 @@ class CarsDatabase {
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
+  Future updateCar({ //TODO implementar update
+    required carId,
+    required carBrandCode,
+    required carBrandName,
+    required carModelCode,
+    required carModelName,
+    required carYearCode,
+    required carYearName,
+    required carFipe,
+    required billingMethod,
+    required billingValue,
+    required isGasCharged,
+  }) async {
+    var jsonData = {
+      "carBrandCode": carBrandCode,
+      "carBrandName": carBrandName,
+      "carModelCode": carModelCode,
+      "carModelName": carModelName,
+      "carYearCode": carYearCode,
+      "carYearName": carYearName,
+      "carFipe": carFipe,
+      "billingMethod": billingMethod,
+      "billingValue": billingValue,
+      "isGasCharged": isGasCharged,
+    };
+    Database _db =
+        await initDB(); //TODO deixar singleton para reaproveitar o db como variavel da classe
+    await _db.update('cars', jsonData, where: "carId = $carId",
+        conflictAlgorithm: ConflictAlgorithm.replace);
+  }
+
   Future selectCar({String select = "*", String where = ""}) async {
     if (where.isNotEmpty) {
       where = "WHERE $where";

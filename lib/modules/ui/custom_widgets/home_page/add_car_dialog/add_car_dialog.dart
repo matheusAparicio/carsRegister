@@ -12,7 +12,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 
 class AddCarDialog extends StatefulWidget {
-  const AddCarDialog({Key? key}) : super(key: key);
+  final String purpose;
+  final int? carId;
+  const AddCarDialog({Key? key, required this.purpose, this.carId})
+      : super(key: key);
 
   @override
   State<AddCarDialog> createState() => _AddCarDialogState();
@@ -56,7 +59,9 @@ class _AddCarDialogState extends State<AddCarDialog> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Text(
-                        "Adicionar carro",
+                        widget.purpose == "insert"
+                            ? "Adicionar carro"
+                            : "Modificar carro",
                         style: AppTextStyles().mainTextStyle(
                           color: AppColors().primaryTextColor,
                         ),
@@ -143,18 +148,38 @@ class _AddCarDialogState extends State<AddCarDialog> {
               MainButton(
                 buttonName: "Confirmar",
                 onPressed: () {
-                  CarsDatabase().insertCar(
-                      carBrandCode: registerState.dropdownBrandValue[0],
-                      carBrandName: registerState.dropdownBrandValue[1],
-                      carModelCode: registerState.dropdownModelValue[0],
-                      carModelName: registerState.dropdownModelValue[1],
-                      carYearCode: registerState.dropdownYearValue[0],
-                      carYearName: registerState.dropdownYearValue[1],
-                      carFipe: registerState.carFipeValue,
-                      billingMethod: registerState.dropdownBillingMethod,
-                      billingValue: double.parse(
-                          registerState.billingValueController.text.toString().currencyToDouble()),
-                      isGasCharged: registerState.isGasCharged ? 1 : 0);
+                  if (widget.purpose == "insert") {
+                    CarsDatabase().insertCar(
+                        carBrandCode: registerState.dropdownBrandValue[0],
+                        carBrandName: registerState.dropdownBrandValue[1],
+                        carModelCode: registerState.dropdownModelValue[0],
+                        carModelName: registerState.dropdownModelValue[1],
+                        carYearCode: registerState.dropdownYearValue[0],
+                        carYearName: registerState.dropdownYearValue[1],
+                        carFipe: registerState.carFipeValue,
+                        billingMethod: registerState.dropdownBillingMethod,
+                        billingValue: double.parse(registerState
+                            .billingValueController.text
+                            .toString()
+                            .currencyToDouble()),
+                        isGasCharged: registerState.isGasCharged ? 1 : 0);
+                  } else {
+                    CarsDatabase().updateCar(
+                        carId: widget.carId,
+                        carBrandCode: registerState.dropdownBrandValue[0],
+                        carBrandName: registerState.dropdownBrandValue[1],
+                        carModelCode: registerState.dropdownModelValue[0],
+                        carModelName: registerState.dropdownModelValue[1],
+                        carYearCode: registerState.dropdownYearValue[0],
+                        carYearName: registerState.dropdownYearValue[1],
+                        carFipe: registerState.carFipeValue,
+                        billingMethod: registerState.dropdownBillingMethod,
+                        billingValue: double.parse(registerState
+                            .billingValueController.text
+                            .toString()
+                            .currencyToDouble()),
+                        isGasCharged: registerState.isGasCharged ? 1 : 0);
+                  }
                   registerState.resetValues();
                   queryState.updateCarList();
                   Navigator.pushReplacement(

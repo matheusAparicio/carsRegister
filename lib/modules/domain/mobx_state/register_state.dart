@@ -5,6 +5,7 @@ import 'package:carsregister/modules/external/car_brand_response.dart';
 import 'package:carsregister/modules/external/car_fipe_response.dart';
 import 'package:carsregister/modules/external/car_model_response.dart';
 import 'package:carsregister/modules/external/car_year_response.dart';
+import 'package:carsregister/modules/ui/utilities/string_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 part 'register_state.g.dart';
@@ -33,7 +34,10 @@ abstract class _RegisterStateBase with Store {
   ];
 
   @observable
-  List<String> dropdownBrandValue = ["", ""]; // O index 0 é o código, o index 1 é o nome.
+  List<String> dropdownBrandValue = [
+    "",
+    ""
+  ]; // O index 0 é o código, o index 1 é o nome.
 
   @observable
   List<String> dropdownModelValue = ["", ""];
@@ -112,5 +116,37 @@ abstract class _RegisterStateBase with Store {
     isGasCharged = false;
   }
 
-  
+  @action
+  dynamic loadCarValues({
+    required String carBrandCode,
+    required String carBrandName,
+    required String carModelCode,
+    required String carModelName,
+    required String carYearCode,
+    required String carYearName,
+    required String carFipe,
+    required String billingMethod,
+    required dynamic billingValue,
+    required dynamic isGasCharged,
+  }) async {
+    dropdownBrandValue[0] = carBrandCode;
+    dropdownBrandValue[1] = carBrandName;
+
+    getCarModels(brandCode: carBrandCode);
+
+    dropdownModelValue[0] = carModelCode;
+    dropdownModelValue[1] = carModelName;
+
+    getCarYears(brandCode: carBrandCode, modelCode: carModelCode);
+
+    dropdownYearValue[0] = carYearCode;
+    dropdownYearValue[1] = carYearName;
+
+    carFipeValue = carFipe;
+
+    dropdownBillingMethod = billingMethod;
+    billingValueController.text = billingValue.toString().doubleToCurrency();
+
+    isGasCharged = isGasCharged == 1 ? true : false;
+  }
 }

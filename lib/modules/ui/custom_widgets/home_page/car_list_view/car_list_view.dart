@@ -113,7 +113,10 @@ class _CarListViewState extends State<CarListView> {
                   ),
                 ),
                 queryState.showOption[index]
-                    ? const CarListViewOptions()
+                    ? CarListViewOptions(
+                        carListIndex: index,
+                        carDbId: queryState.carList[index]["carId"],
+                      )
                     : const SizedBox()
               ],
             );

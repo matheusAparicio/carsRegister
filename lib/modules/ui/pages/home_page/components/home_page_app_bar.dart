@@ -71,7 +71,7 @@ class _HomePageAppBarState extends State<HomePageAppBar> {
                       showDialog(
                           context: context,
                           builder: (BuildContext context) {
-                            return const AddCarDialog();
+                            return const AddCarDialog(purpose: "insert",);
                           });
                     },
                     child: SizedBox(
