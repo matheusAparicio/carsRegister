@@ -1,9 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:carsregister/modules/ui/custom_widgets/home_page/add_car_dialog/add_car_dialog.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CompactButton extends StatefulWidget {
   final double width;

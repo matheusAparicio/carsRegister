@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carsregister/modules/domain/mobx_state/query_state.dart';
 import 'package:carsregister/modules/ui/custom_widgets/general/compact_button.dart';
 import 'package:carsregister/modules/ui/custom_widgets/home_page/car_list_view/car_list_view.dart';
@@ -19,9 +18,10 @@ class _HomePageBodyState extends State<HomePageBody> {
   @override
   Widget build(BuildContext context) {
     return Observer(builder: (_) {
-      return SizedBox(
+      return Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
+        color: AppColors().secondaryColor,
         child: Stack(
           children: [
             Column(

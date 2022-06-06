@@ -34,7 +34,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
     registerState.resetValues();
     queryState.updateCarList();
     registerState.getCarBrands().then((value) {
-      Future.delayed(const Duration(milliseconds: 3500)).then((value) {
+      Future.delayed(const Duration(milliseconds: 1500)).then((value) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const HomePage()),
@@ -48,7 +48,7 @@ class _SplashscreenPageState extends State<SplashscreenPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: AppColors().primaryColor),
+      decoration: BoxDecoration(color: AppColors().splashScreenColor),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Lottie.asset("lib/assets/lottie/splashcreen_animation.json",
             repeat: false),
