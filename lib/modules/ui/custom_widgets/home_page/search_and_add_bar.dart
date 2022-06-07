@@ -28,11 +28,14 @@ class _SearchAndAddBarState extends State<SearchAndAddBar> {
             height: searchBarHeight,
             transformAlignment: Alignment.topCenter,
             decoration: queryState.showSearchAndAdd
-                ? const BoxDecoration(
+                ? BoxDecoration(
                     border: Border(
-                        left: BorderSide(),
-                        right: BorderSide(),
-                        bottom: BorderSide()))
+                        left: BorderSide(
+                            color: preferencesState.secondaryTextColor),
+                        right: BorderSide(
+                            color: preferencesState.secondaryTextColor),
+                        bottom: BorderSide(
+                            color: preferencesState.secondaryTextColor)))
                 : const BoxDecoration(),
             child: queryState.showSearchAndAdd
                 ? TextFormField(
@@ -43,7 +46,8 @@ class _SearchAndAddBarState extends State<SearchAndAddBar> {
                     decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: "Pesquisar",
-                      hintStyle: AppTextStyles().mainTextStyle(color: AppColors().greyColor),
+                      hintStyle: AppTextStyles()
+                          .mainTextStyle(color: AppColors().greyColor),
                     ),
                     onChanged: (value) {
                       queryState.searchCarList(searchString: value);
@@ -66,9 +70,11 @@ class _SearchAndAddBarState extends State<SearchAndAddBar> {
             },
             child: SizedBox(
               width: MediaQuery.of(context).size.width * .1,
-              child: Icon(queryState.showSearchAndAdd
-                  ? Icons.keyboard_arrow_up
-                  : Icons.search),
+              child: Icon(
+                  queryState.showSearchAndAdd
+                      ? Icons.keyboard_arrow_up
+                      : Icons.search,
+                  color: preferencesState.secondaryTextColor),
             ),
           ),
         ],
