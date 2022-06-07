@@ -5,7 +5,7 @@ class AppTextStyles {
   TextStyle mainTextStyle(
       {FontWeight fontWeight = FontWeight.w400,
       double fontSize = 16,
-      Color color = Colors.black}) {
+      Color color = Colors.white}) {
     return GoogleFonts.roboto(
       fontSize: fontSize,
       fontWeight: fontWeight,
