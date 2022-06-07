@@ -41,66 +41,79 @@ class _CarListViewState extends State<CarListView> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          width: 50,
-                          decoration: BoxDecoration(
-                            border: Border(
-                                right: BorderSide(
-                                    color:
-                                        preferencesState.secondaryTextColor)),
-                          ),
-                          alignment: Alignment.center,
-                          margin: const EdgeInsets.only(right: 5),
-                          child: FaIcon(FontAwesomeIcons.car,
-                              size: 30,
-                              color: preferencesState.secondaryTextColor),
-                        ),
-                        Expanded(
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text.rich(
-                                  TextSpan(
-                                    children: <TextSpan>[
-                                      TextSpan(
-                                        text: queryState.carListDisplay[index]
-                                                ["carBrandName"] +
-                                            " ",
-                                      ),
-                                      TextSpan(
+                        Observer(builder: (_) {
+                          return Container(
+                            width: 50,
+                            decoration: BoxDecoration(
+                              border: Border(
+                                  right: BorderSide(
+                                      color:
+                                          preferencesState.secondaryTextColor)),
+                            ),
+                            alignment: Alignment.center,
+                            margin: const EdgeInsets.only(right: 5),
+                            child: FaIcon(FontAwesomeIcons.car,
+                                size: 30,
+                                color: preferencesState.secondaryTextColor),
+                          );
+                        }),
+                        Observer(builder: (_) {
+                          return Expanded(
+                            child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text.rich(
+                                    TextSpan(
+                                      children: <TextSpan>[
+                                        TextSpan(
                                           text: queryState.carListDisplay[index]
-                                                  ["carModelName"] +
+                                                  ["carBrandName"] +
                                               " ",
-                                          style: AppTextStyles().mainTextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 14)),
-                                      TextSpan(
-                                        text: queryState.carListDisplay[index]
-                                                ["carYearName"]
-                                            .toString()
-                                            .firstWord(),
-                                      ),
-                                    ],
+                                        ),
+                                        TextSpan(
+                                            text:
+                                                queryState.carListDisplay[index]
+                                                        ["carModelName"] +
+                                                    " ",
+                                            style: AppTextStyles()
+                                                .mainTextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 14,
+                                                    color: preferencesState
+                                                        .secondaryTextColor)),
+                                        TextSpan(
+                                          text: queryState.carListDisplay[index]
+                                                  ["carYearName"]
+                                              .toString()
+                                              .firstWord(),
+                                        ),
+                                      ],
+                                    ),
+                                    style: AppTextStyles().mainTextStyle(
+                                        fontSize: 14,
+                                        color: preferencesState
+                                            .secondaryTextColor),
+                                    textAlign: TextAlign.left,
                                   ),
-                                  style: AppTextStyles()
-                                      .mainTextStyle(fontSize: 14),
-                                  textAlign: TextAlign.left,
-                                ),
-                                Text(
-                                  "Valor FIPE: ${queryState.carListDisplay[index]["carFipe"]}",
-                                  style: GoogleFonts.roboto(
-                                    color: preferencesState.secondaryTextColor,
+                                  Text(
+                                    "Valor FIPE: ${queryState.carListDisplay[index]["carFipe"]}",
+                                    style: GoogleFonts.roboto(
+                                      color:
+                                          preferencesState.secondaryTextColor,
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  "Aluguel: ${AppTextFormats().currencyFormat.format(queryState.carListDisplay[index]["billingValue"])}/${queryState.carListDisplay[index]["billingMethod"].substring(4)} ${queryState.carListDisplay[index]["isGasCharged"].toString().turnBoolToMessage(message: "+ Combustível")}",
-                                  style: GoogleFonts.roboto(
-                                    color: preferencesState.secondaryTextColor,
+                                  Text(
+                                    "Aluguel: ${AppTextFormats().currencyFormat.format(queryState.carListDisplay[index]["billingValue"])}/${queryState.carListDisplay[index]["billingMethod"].substring(4)} ${queryState.carListDisplay[index]["isGasCharged"].toString().turnBoolToMessage(message: "+ Combustível")}",
+                                    style: GoogleFonts.roboto(
+                                      color:
+                                          preferencesState.secondaryTextColor,
+                                    ),
                                   ),
-                                ),
-                              ]),
-                        ),
+                                ]),
+                          );
+                        }),
                         Container(
                           width: 50,
                           alignment: Alignment.center,
