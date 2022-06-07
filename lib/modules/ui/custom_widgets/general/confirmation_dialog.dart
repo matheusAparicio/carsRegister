@@ -36,7 +36,7 @@ class _ConfirmationDialogState extends State<ConfirmationDialog> {
                   width: MediaQuery.of(context).size.width * .5,
                   child: Text(
                     widget.confirmationMessage,
-                    style: AppTextStyles().mainTextStyle(),
+                    style: AppTextStyles().mainTextStyle(color: preferencesState.secondaryTextColor),
                     textAlign: TextAlign.center,
                   ),
                 ),
