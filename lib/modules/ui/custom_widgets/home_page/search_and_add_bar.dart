@@ -54,6 +54,7 @@ class _SearchAndAddBarState extends State<SearchAndAddBar> {
                       onChanged: (value) {
                         queryState.searchCarList(searchString: value);
                       },
+                      style: AppTextStyles().mainTextStyle(color: preferencesState.secondaryTextColor)
                     )
                   : null,
             ),
