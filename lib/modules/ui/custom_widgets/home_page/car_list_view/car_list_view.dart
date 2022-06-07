@@ -43,12 +43,17 @@ class _CarListViewState extends State<CarListView> {
                       children: [
                         Container(
                           width: 50,
-                          decoration: const BoxDecoration(
-                            border: Border(right: BorderSide()),
+                          decoration: BoxDecoration(
+                            border: Border(
+                                right: BorderSide(
+                                    color:
+                                        preferencesState.secondaryTextColor)),
                           ),
                           alignment: Alignment.center,
                           margin: const EdgeInsets.only(right: 5),
-                          child: const FaIcon(FontAwesomeIcons.car, size: 30),
+                          child: FaIcon(FontAwesomeIcons.car,
+                              size: 30,
+                              color: preferencesState.secondaryTextColor),
                         ),
                         Expanded(
                           child: Column(
@@ -104,7 +109,8 @@ class _CarListViewState extends State<CarListView> {
                               !queryState.showOption[index]
                                   ? Icons.keyboard_arrow_down
                                   : Icons.keyboard_arrow_up,
-                              size: 25),
+                              size: 25,
+                              color: preferencesState.secondaryTextColor),
                         ),
                       ],
                     ),
