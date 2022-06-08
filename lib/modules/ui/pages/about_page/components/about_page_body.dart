@@ -1,4 +1,5 @@
 import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
+import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -123,7 +124,7 @@ class _AboutPageBodyState extends State<AboutPageBody> {
                 },
                 child: Text("https://www.linkedin.com/in/matheusaps\n",
                     style: AppTextStyles()
-                        .mainTextStyle(color: preferencesState.primaryColor)),
+                        .mainTextStyle(color: AppColors().blueColor)),
               ),
               GestureDetector(
                 onTap: () async {
@@ -132,7 +133,7 @@ class _AboutPageBodyState extends State<AboutPageBody> {
                 },
                 child: Text("https://github.com/matheusAparicio",
                     style: AppTextStyles()
-                        .mainTextStyle(color: preferencesState.primaryColor)),
+                        .mainTextStyle(color: AppColors().blueColor)),
               )
             ],
           ),

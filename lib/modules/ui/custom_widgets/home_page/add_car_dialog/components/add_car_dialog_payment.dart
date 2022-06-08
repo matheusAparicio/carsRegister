@@ -1,5 +1,6 @@
 import 'package:carsregister/modules/domain/mobx_state/register_state.dart';
 import 'package:carsregister/modules/domain/mobx_state/preferences_state.dart';
+import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:carsregister/modules/ui/utilities/currency_text_formatter.dart';
 import 'package:flutter/material.dart';
@@ -98,7 +99,7 @@ class _AddCarDialogPaymentState extends State<AddCarDialogPayment> {
                 });
               },
               activeColor: preferencesState.primaryColor,
-              trackColor: MaterialStateProperty.all(preferencesState.secondaryTextColor),
+              trackColor: MaterialStateProperty.all(AppColors().greyColor),
             ),
           ],
         ),

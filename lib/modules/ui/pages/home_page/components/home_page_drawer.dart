@@ -39,12 +39,13 @@ class _HomePageDrawerState extends State<HomePageDrawer> {
                   buttonIcon: Icons.person,
                   buttonName: "Usuário",
                   buttonWidth: MediaQuery.of(context).size.width * .42,
-                  buttonDecoration: const BoxDecoration(
+                  buttonDecoration: BoxDecoration(
                     border: Border(
-                      bottom: BorderSide(),
+                      bottom: BorderSide(color: preferencesState.secondaryTextColor),
                     ),
                   ),
                   iconOnTop: true,
+                  hasArrow: false,
                 ),
                 ToggleLightModeSwitch(
                     width: MediaQuery.of(context).size.width * .13),
@@ -93,6 +94,7 @@ class _HomePageDrawerState extends State<HomePageDrawer> {
                 buttonName: "Sair do aplicativo",
                 buttonWidth: MediaQuery.of(context).size.width * .5,
                 buttonColor: AppColors().redColor,
+                arrowColor: AppColors().redColor,
                 onTap: () {
                   exit(0);
                 }),

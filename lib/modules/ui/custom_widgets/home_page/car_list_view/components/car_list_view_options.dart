@@ -8,6 +8,7 @@ import 'package:carsregister/modules/ui/pages/home_page/home_page.dart';
 import 'package:carsregister/modules/ui/utilities/app_colors.dart';
 import 'package:carsregister/modules/ui/utilities/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class CarListViewOptions extends StatefulWidget {
   final int carListIndex;
@@ -54,28 +55,30 @@ class _CarListViewOptionsState extends State<CarListViewOptions> {
             registerState.resetValues();
           });
         },
-        child: Container(
-          width: MediaQuery.of(context).size.width * .7,
-          height: 40,
-          decoration: BoxDecoration(
-            color: preferencesState.primaryColor,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(width: MediaQuery.of(context).size.width * .05),
-              Text("Editar",
-                  style: AppTextStyles()
-                      .mainTextStyle(color: preferencesState.primaryTextColor)),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .05,
-                child:
-                    Icon(Icons.settings, color: preferencesState.primaryTextColor),
-              ),
-            ],
-          ),
-        ),
+        child: Observer(builder: (_) {
+          return Container(
+            width: MediaQuery.of(context).size.width * .7,
+            height: 40,
+            decoration: BoxDecoration(
+              color: preferencesState.primaryColor,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(width: MediaQuery.of(context).size.width * .05),
+                Text("Editar",
+                    style: AppTextStyles().mainTextStyle(
+                        color: preferencesState.primaryTextColor)),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .05,
+                  child: Icon(Icons.settings,
+                      color: preferencesState.primaryTextColor),
+                ),
+              ],
+            ),
+          );
+        }),
       ),
       const SizedBox(height: 5),
       GestureDetector(
@@ -115,7 +118,8 @@ class _CarListViewOptionsState extends State<CarListViewOptions> {
                       .mainTextStyle(color: preferencesState.primaryTextColor)),
               SizedBox(
                 width: MediaQuery.of(context).size.width * .05,
-                child: Icon(Icons.delete, color: preferencesState.primaryTextColor),
+                child: Icon(Icons.delete,
+                    color: preferencesState.primaryTextColor),
               ),
             ],
           ),

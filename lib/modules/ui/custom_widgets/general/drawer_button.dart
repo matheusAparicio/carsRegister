@@ -9,6 +9,8 @@ class DrawerButton extends StatefulWidget {
   final double buttonWidth;
   final BoxDecoration? buttonDecoration;
   final Color? buttonColor;
+  final Color? arrowColor;
+  final bool hasArrow;
   final dynamic onTap;
   final bool iconOnTop;
   const DrawerButton({
@@ -18,8 +20,10 @@ class DrawerButton extends StatefulWidget {
     required this.buttonWidth,
     this.buttonDecoration,
     this.buttonColor,
+    this.arrowColor,
     this.onTap,
     this.iconOnTop = false,
+    this.hasArrow = true,
   }) : super(key: key);
 
   @override
@@ -60,7 +64,7 @@ class _DrawerButtonState extends State<DrawerButton> {
                   ),
                 ) : SizedBox(width: widget.buttonWidth / 30),
                 SizedBox(
-                  width: widget.buttonWidth * .85,
+                  width: widget.buttonWidth * .75,
                   child: AutoSizeText(
                     widget.buttonName,
                     maxLines: 2,
@@ -71,6 +75,7 @@ class _DrawerButtonState extends State<DrawerButton> {
                     ),
                   ),
                 ),
+                widget.hasArrow ? Icon(Icons.arrow_forward_ios, color: widget.arrowColor??preferencesState.secondaryTextColor) : const SizedBox()
               ],
             ),
           ],
