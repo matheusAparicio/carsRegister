@@ -32,24 +32,28 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
                   color: preferencesState.secondaryTextColor,
                 ),
               ),
-              DropdownButton(
-                dropdownColor: preferencesState.secondaryColor,
-                iconEnabledColor: preferencesState.secondaryTextColor,
-                iconDisabledColor: AppColors().greyColor,
-                  value: registerState.dropdownBrandValue[0],
-                  items: registerState.dropdownBrandItems
-                      .map((CarBrandEntity item) {
-                    return DropdownMenuItem(
-                        value: item.codigo,
-                        child: DropdownText(name: item.nome),
-                        onTap: () {
-                          registerState.dropdownBrandValue[1] = item.nome;
-                        });
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    registerState.dropdownBrandValue[0] = newValue!;
-                    registerState.getCarModels(brandCode: newValue);
-                  }),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .5,
+                child: DropdownButton(
+                    isExpanded: true,
+                    dropdownColor: preferencesState.secondaryColor,
+                    iconEnabledColor: preferencesState.secondaryTextColor,
+                    iconDisabledColor: AppColors().greyColor,
+                    value: registerState.dropdownBrandValue[0],
+                    items: registerState.dropdownBrandItems
+                        .map((CarBrandEntity item) {
+                      return DropdownMenuItem(
+                          value: item.codigo,
+                          child: DropdownText(name: item.nome),
+                          onTap: () {
+                            registerState.dropdownBrandValue[1] = item.nome;
+                          });
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      registerState.dropdownBrandValue[0] = newValue!;
+                      registerState.getCarModels(brandCode: newValue);
+                    }),
+              ),
             ],
           ),
           Column(
@@ -64,7 +68,8 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .5,
                 child: DropdownButton(
-                  dropdownColor: preferencesState.secondaryColor,
+                    isExpanded: true,
+                    dropdownColor: preferencesState.secondaryColor,
                     value: registerState.dropdownModelValue[0],
                     items: registerState.dropdownModelItems
                         .map((CarModelEntity item) {
@@ -97,28 +102,32 @@ class _AddCarDialogInfoState extends State<AddCarDialogInfo> {
                   color: preferencesState.secondaryTextColor,
                 ),
               ),
-              DropdownButton(
-                dropdownColor: preferencesState.secondaryColor,
-                  value: registerState.dropdownYearValue[0],
-                  items:
-                      registerState.dropdownYearItems.map((CarYearEntity item) {
-                    return DropdownMenuItem(
-                      value: item.codigo,
-                      child: DropdownText(name: item.nome),
-                      onTap: () {
-                        registerState.dropdownYearValue[1] = item.nome;
-                      },
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      registerState.dropdownYearValue[0] = newValue!;
-                      registerState.getCarFipe(
-                          brandCode: registerState.dropdownBrandValue[0],
-                          modelCode: registerState.dropdownModelValue[0],
-                          yearCode: newValue);
-                    });
-                  }),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .5,
+                child: DropdownButton(
+                  isExpanded: true,
+                    dropdownColor: preferencesState.secondaryColor,
+                    value: registerState.dropdownYearValue[0],
+                    items:
+                        registerState.dropdownYearItems.map((CarYearEntity item) {
+                      return DropdownMenuItem(
+                        value: item.codigo,
+                        child: DropdownText(name: item.nome),
+                        onTap: () {
+                          registerState.dropdownYearValue[1] = item.nome;
+                        },
+                      );
+                    }).toList(),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        registerState.dropdownYearValue[0] = newValue!;
+                        registerState.getCarFipe(
+                            brandCode: registerState.dropdownBrandValue[0],
+                            modelCode: registerState.dropdownModelValue[0],
+                            yearCode: newValue);
+                      });
+                    }),
+              ),
             ],
           ),
           Column(
