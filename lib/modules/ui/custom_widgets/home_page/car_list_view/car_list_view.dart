@@ -114,17 +114,19 @@ class _CarListViewState extends State<CarListView> {
                                 ]),
                           );
                         }),
-                        Container(
-                          width: 50,
-                          alignment: Alignment.center,
-                          margin: const EdgeInsets.only(left: 5),
-                          child: Icon(
-                              !queryState.showOption[index]
-                                  ? Icons.keyboard_arrow_down
-                                  : Icons.keyboard_arrow_up,
-                              size: 25,
-                              color: preferencesState.secondaryTextColor),
-                        ),
+                        Observer(builder: (_) {
+                          return Container(
+                            width: 50,
+                            alignment: Alignment.center,
+                            margin: const EdgeInsets.only(left: 5),
+                            child: Icon(
+                                !queryState.showOption[index]
+                                    ? Icons.keyboard_arrow_down
+                                    : Icons.keyboard_arrow_up,
+                                size: 25,
+                                color: preferencesState.secondaryTextColor),
+                          );
+                        }),
                       ],
                     ),
                   ),

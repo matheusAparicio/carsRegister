@@ -22,41 +22,41 @@ class CarListViewOptions extends StatefulWidget {
 class _CarListViewOptionsState extends State<CarListViewOptions> {
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      GestureDetector(
-        onTap: () async {
-          await registerState.loadCarValues(
-              carBrandCode: queryState.carList[widget.carListIndex]
-                  ["carBrandCode"],
-              carBrandName: queryState.carList[widget.carListIndex]
-                  ["carBrandName"],
-              carModelCode: queryState.carList[widget.carListIndex]
-                  ["carModelCode"],
-              carModelName: queryState.carList[widget.carListIndex]
-                  ["carModelName"],
-              carYearCode: queryState.carList[widget.carListIndex]
-                  ["carYearCode"],
-              carYearName: queryState.carList[widget.carListIndex]
-                  ["carYearName"],
-              carFipe: queryState.carList[widget.carListIndex]["carFipe"],
-              billingMethod: queryState.carList[widget.carListIndex]
-                  ["billingMethod"],
-              billingValue: queryState.carList[widget.carListIndex]
-                  ["billingValue"],
-              isGasCharged: queryState.carList[widget.carListIndex]
-                  ["isGasCharged"]);
-          await showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AddCarDialog(
-                    purpose: "update",
-                    carId: queryState.carList[widget.carListIndex]["carId"]);
-              }).then((value) {
-            registerState.resetValues();
-          });
-        },
-        child: Observer(builder: (_) {
-          return Container(
+    return Observer(builder: (_) {
+      return Column(children: [
+        GestureDetector(
+          onTap: () async {
+            await registerState.loadCarValues(
+                carBrandCode: queryState.carList[widget.carListIndex]
+                    ["carBrandCode"],
+                carBrandName: queryState.carList[widget.carListIndex]
+                    ["carBrandName"],
+                carModelCode: queryState.carList[widget.carListIndex]
+                    ["carModelCode"],
+                carModelName: queryState.carList[widget.carListIndex]
+                    ["carModelName"],
+                carYearCode: queryState.carList[widget.carListIndex]
+                    ["carYearCode"],
+                carYearName: queryState.carList[widget.carListIndex]
+                    ["carYearName"],
+                carFipe: queryState.carList[widget.carListIndex]["carFipe"],
+                billingMethod: queryState.carList[widget.carListIndex]
+                    ["billingMethod"],
+                billingValue: queryState.carList[widget.carListIndex]
+                    ["billingValue"],
+                isGasCharged: queryState.carList[widget.carListIndex]
+                    ["isGasCharged"]);
+            await showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AddCarDialog(
+                      purpose: "update",
+                      carId: queryState.carList[widget.carListIndex]["carId"]);
+                }).then((value) {
+              registerState.resetValues();
+            });
+          },
+          child: Container(
             width: MediaQuery.of(context).size.width * .7,
             height: 40,
             decoration: BoxDecoration(
@@ -77,54 +77,55 @@ class _CarListViewOptionsState extends State<CarListViewOptions> {
                 ),
               ],
             ),
-          );
-        }),
-      ),
-      const SizedBox(height: 5),
-      GestureDetector(
-        onTap: () {
-          showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return ConfirmationDialog(
-                  confirmationMessage:
-                      "Você tem certeza que deseja excluir o veículo selecionado?",
-                  confirmationAction: () {
-                    CarsDatabase().deleteCar(
-                        carId: queryState.carList[widget.carListIndex]
-                            ["carId"]);
-                    queryState.updateCarList();
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
-                  },
-                );
-              });
-        },
-        child: Container(
-          width: MediaQuery.of(context).size.width * .7,
-          height: 40,
-          decoration: BoxDecoration(
-            color: AppColors().redColor,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              SizedBox(width: MediaQuery.of(context).size.width * .05),
-              Text("Remover",
-                  style: AppTextStyles()
-                      .mainTextStyle(color: preferencesState.primaryTextColor)),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .05,
-                child: Icon(Icons.delete,
-                    color: preferencesState.primaryTextColor),
-              ),
-            ],
           ),
         ),
-      )
-    ]);
+        const SizedBox(height: 5),
+        GestureDetector(
+          onTap: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return ConfirmationDialog(
+                    confirmationMessage:
+                        "Você tem certeza que deseja excluir o veículo selecionado?",
+                    confirmationAction: () {
+                      CarsDatabase().deleteCar(
+                          carId: queryState.carList[widget.carListIndex]
+                              ["carId"]);
+                      queryState.updateCarList();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()),
+                      );
+                    },
+                  );
+                });
+          },
+          child: Container(
+            width: MediaQuery.of(context).size.width * .7,
+            height: 40,
+            decoration: BoxDecoration(
+              color: AppColors().redColor,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(width: MediaQuery.of(context).size.width * .05),
+                Text("Remover",
+                    style: AppTextStyles().mainTextStyle(
+                        color: preferencesState.primaryTextColor)),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .05,
+                  child: Icon(Icons.delete,
+                      color: preferencesState.primaryTextColor),
+                ),
+              ],
+            ),
+          ),
+        )
+      ]);
+    });
   }
 }
