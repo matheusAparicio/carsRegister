@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
 
   Color voidColor = const Color.fromARGB(255, 15, 11, 22);
+  Color voidColorBrighter = const Color.fromARGB(255, 30, 24, 41);
   Color fuschiaColor = const Color.fromARGB(255, 162, 57, 202);
   Color jewelColor = const Color.fromARGB(255, 70, 22, 246);
   Color jewelColorDarker = const Color.fromARGB(255, 71, 49, 151);

@@ -35,7 +35,7 @@ abstract class _PreferencesStateBase with Store {
     } else {
       primaryColor = AppColors().jewelColorDarker;
       primaryTextColor = AppColors().starkColor;
-      secondaryColor = AppColors().voidColor;
+      secondaryColor = AppColors().voidColorBrighter;
       secondaryTextColor = AppColors().starkColor;
 
       darkMode = true;
